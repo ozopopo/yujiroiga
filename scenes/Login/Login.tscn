@@ -1,0 +1,367 @@
+[gd_scene load_steps=13 format=3 uid="uid://ol1jds7salpy"]
+
+[ext_resource type="Script" path="res://scenes/Login/login.gd" id="1_ilhcx"]
+[ext_resource type="Texture2D" uid="uid://cps4irbjkxek0" path="res://img/background/back.jpg" id="2_oedoj"]
+[ext_resource type="FontFile" uid="uid://cw4i3i5gly5i" path="res://font/mplus-1c-regular.ttf" id="3_1ag52"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_fnxkw"]
+font_size = 40
+
+[sub_resource type="LabelSettings" id="LabelSettings_vjmi8"]
+font_size = 30
+
+[sub_resource type="LabelSettings" id="LabelSettings_wqus5"]
+font_size = 30
+
+[sub_resource type="LabelSettings" id="LabelSettings_141t0"]
+font_size = 30
+shadow_color = Color(1, 0, 0, 0)
+
+[sub_resource type="LabelSettings" id="LabelSettings_g2b2u"]
+font_size = 30
+
+[sub_resource type="LabelSettings" id="LabelSettings_v2v27"]
+font_size = 30
+
+[sub_resource type="LabelSettings" id="LabelSettings_gjyr5"]
+font = ExtResource("3_1ag52")
+font_size = 20
+font_color = Color(1, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_dj5q8"]
+font = ExtResource("3_1ag52")
+font_color = Color(1, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_iyteq"]
+font = ExtResource("3_1ag52")
+font_color = Color(1, 0, 0, 1)
+
+[node name="Login" type="Node"]
+script = ExtResource("1_ilhcx")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 1200.0
+offset_bottom = 740.0
+texture = ExtResource("2_oedoj")
+metadata/_edit_lock_ = true
+
+[node name="Ui" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="Ui"]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 100.0
+offset_right = 1100.0
+offset_bottom = 640.0
+color = Color(0, 0, 0, 0.470588)
+metadata/_edit_lock_ = true
+
+[node name="AskLogin" type="VBoxContainer" parent="Ui"]
+layout_mode = 2
+offset_right = 1200.0
+offset_bottom = 740.0
+alignment = 1
+
+[node name="Label" type="Label" parent="Ui/AskLogin"]
+layout_mode = 2
+text = "スコアや設定の保存をしますか？
+※詳しくはREADMEをご確認ください。"
+label_settings = SubResource("LabelSettings_fnxkw")
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="Ui/AskLogin"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Ui/AskLogin"]
+layout_mode = 2
+theme_override_constants/separation = 60
+alignment = 1
+
+[node name="YesButton" type="Button" parent="Ui/AskLogin/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Ui/AskLogin/HBoxContainer/YesButton"]
+layout_mode = 0
+offset_right = 100.0
+offset_bottom = 50.0
+text = "する"
+label_settings = SubResource("LabelSettings_vjmi8")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NoButton" type="Button" parent="Ui/AskLogin/HBoxContainer"]
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="Ui/AskLogin/HBoxContainer/NoButton"]
+layout_mode = 0
+offset_right = 100.0
+offset_bottom = 50.0
+text = "しない"
+label_settings = SubResource("LabelSettings_wqus5")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NameInput" type="VBoxContainer" parent="Ui"]
+visible = false
+layout_mode = 0
+offset_right = 1200.0
+offset_bottom = 740.0
+alignment = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Ui/NameInput"]
+layout_mode = 2
+
+[node name="VSeparator" type="VSeparator" parent="Ui/NameInput/HBoxContainer2"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="NameInputBackButton" type="Button" parent="Ui/NameInput/HBoxContainer2"]
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Ui/NameInput/HBoxContainer2/NameInputBackButton"]
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "戻る"
+label_settings = SubResource("LabelSettings_141t0")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HSeparator2" type="HSeparator" parent="Ui/NameInput"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Ui/NameInput"]
+layout_mode = 2
+text = "使用する名前を入力してください。"
+label_settings = SubResource("LabelSettings_fnxkw")
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="Ui/NameInput"]
+layout_mode = 2
+text = "※ここで入力した名前は、「他の人のスコアを見る」画面でみんなが見れます。"
+label_settings = SubResource("LabelSettings_g2b2u")
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="Ui/NameInput"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Ui/NameInput"]
+layout_mode = 2
+theme_override_constants/separation = 60
+alignment = 1
+
+[node name="NameInput" type="TextEdit" parent="Ui/NameInput/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+placeholder_text = "あなたの名前"
+
+[node name="NameAcceptButton" type="Button" parent="Ui/NameInput/HBoxContainer"]
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Ui/NameInput/HBoxContainer/NameAcceptButton"]
+layout_mode = 0
+offset_right = 100.0
+offset_bottom = 50.0
+text = "決定"
+label_settings = SubResource("LabelSettings_v2v27")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NameInputError" type="Label" parent="Ui/NameInput"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+text = "名前を入力してください。"
+label_settings = SubResource("LabelSettings_gjyr5")
+horizontal_alignment = 1
+
+[node name="NewPassInput" type="VBoxContainer" parent="Ui"]
+visible = false
+layout_mode = 0
+offset_right = 1200.0
+offset_bottom = 740.0
+alignment = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Ui/NewPassInput"]
+layout_mode = 2
+
+[node name="VSeparator" type="VSeparator" parent="Ui/NewPassInput/HBoxContainer2"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="NewPassInputBackButton" type="Button" parent="Ui/NewPassInput/HBoxContainer2"]
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Ui/NewPassInput/HBoxContainer2/NewPassInputBackButton"]
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "戻る"
+label_settings = SubResource("LabelSettings_141t0")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HSeparator2" type="HSeparator" parent="Ui/NewPassInput"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Ui/NewPassInput"]
+layout_mode = 2
+text = "その名前はまだ使用されていません。
+新しく設定するパスワードを入力してください。"
+label_settings = SubResource("LabelSettings_fnxkw")
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="Ui/NewPassInput"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(0, 120)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Ui/NewPassInput"]
+layout_mode = 2
+theme_override_constants/separation = 60
+alignment = 1
+
+[node name="NewPassInput" type="TextEdit" parent="Ui/NewPassInput/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+placeholder_text = "あなたのパスワード"
+
+[node name="NewPassAcceptButton" type="Button" parent="Ui/NewPassInput/HBoxContainer"]
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Ui/NewPassInput/HBoxContainer/NewPassAcceptButton"]
+layout_mode = 0
+offset_right = 100.0
+offset_bottom = 50.0
+text = "決定"
+label_settings = SubResource("LabelSettings_v2v27")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NewPassInputError" type="Label" parent="Ui/NewPassInput"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+text = "パスワードを入力してください"
+label_settings = SubResource("LabelSettings_dj5q8")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PassInput" type="VBoxContainer" parent="Ui"]
+visible = false
+layout_mode = 0
+offset_right = 1200.0
+offset_bottom = 740.0
+alignment = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Ui/PassInput"]
+layout_mode = 2
+
+[node name="VSeparator" type="VSeparator" parent="Ui/PassInput/HBoxContainer2"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="PassInputBackButton" type="Button" parent="Ui/PassInput/HBoxContainer2"]
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Ui/PassInput/HBoxContainer2/PassInputBackButton"]
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "戻る"
+label_settings = SubResource("LabelSettings_141t0")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="Ui/PassInput"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Ui/PassInput"]
+layout_mode = 2
+text = "その名前はすでに使用されています。
+設定されているパスワードを入力してください。"
+label_settings = SubResource("LabelSettings_fnxkw")
+horizontal_alignment = 1
+
+[node name="HSeparator2" type="HSeparator" parent="Ui/PassInput"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Ui/PassInput"]
+layout_mode = 2
+theme_override_constants/separation = 60
+alignment = 1
+
+[node name="PassInput" type="TextEdit" parent="Ui/PassInput/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+placeholder_text = "あなたのパスワード"
+
+[node name="PassAcceptButton" type="Button" parent="Ui/PassInput/HBoxContainer"]
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Ui/PassInput/HBoxContainer/PassAcceptButton"]
+layout_mode = 0
+offset_right = 100.0
+offset_bottom = 50.0
+text = "決定"
+label_settings = SubResource("LabelSettings_v2v27")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PassInputError" type="Label" parent="Ui/PassInput"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+text = "パスワードを入力してください"
+label_settings = SubResource("LabelSettings_iyteq")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="Ui/AskLogin/HBoxContainer/YesButton" to="." method="go_to" binds= [1]]
+[connection signal="pressed" from="Ui/AskLogin/HBoxContainer/NoButton" to="." method="_on_no_button_pressed"]
+[connection signal="pressed" from="Ui/NameInput/HBoxContainer2/NameInputBackButton" to="." method="go_to" binds= [0]]
+[connection signal="text_changed" from="Ui/NameInput/HBoxContainer/NameInput" to="." method="_on_name_input_text_changed"]
+[connection signal="pressed" from="Ui/NameInput/HBoxContainer/NameAcceptButton" to="." method="_on_name_accept_button_pressed"]
+[connection signal="pressed" from="Ui/NewPassInput/HBoxContainer2/NewPassInputBackButton" to="." method="go_to" binds= [1]]
+[connection signal="text_changed" from="Ui/NewPassInput/HBoxContainer/NewPassInput" to="." method="_on_new_pass_input_text_changed"]
+[connection signal="pressed" from="Ui/NewPassInput/HBoxContainer/NewPassAcceptButton" to="." method="_on_new_pass_accept_button_pressed"]
+[connection signal="pressed" from="Ui/PassInput/HBoxContainer2/PassInputBackButton" to="." method="go_to" binds= [1]]
+[connection signal="text_changed" from="Ui/PassInput/HBoxContainer/PassInput" to="." method="_on_pass_input_text_changed"]
+[connection signal="pressed" from="Ui/PassInput/HBoxContainer/PassAcceptButton" to="." method="_on_pass_accept_button_pressed"]

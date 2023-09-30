@@ -1,0 +1,670 @@
+[gd_scene load_steps=22 format=3 uid="uid://babgwgsd3syr3"]
+
+[ext_resource type="Script" path="res://scenes/Setting/setting.gd" id="1_2f16f"]
+[ext_resource type="Texture2D" uid="uid://cps4irbjkxek0" path="res://img/background/back.jpg" id="2_l076y"]
+[ext_resource type="FontFile" uid="uid://cw4i3i5gly5i" path="res://font/mplus-1c-regular.ttf" id="3_qwep4"]
+[ext_resource type="Script" path="res://scenes/Setting/saveddataviewer.gd" id="4_s7cb7"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_xgtqf"]
+font = ExtResource("3_qwep4")
+font_size = 25
+
+[sub_resource type="LabelSettings" id="LabelSettings_c7hyi"]
+font = ExtResource("3_qwep4")
+font_size = 40
+
+[sub_resource type="LabelSettings" id="LabelSettings_f13py"]
+font = ExtResource("3_qwep4")
+font_size = 40
+
+[sub_resource type="LabelSettings" id="LabelSettings_44dgc"]
+font = ExtResource("3_qwep4")
+font_size = 20
+
+[sub_resource type="LabelSettings" id="LabelSettings_yyw8d"]
+font = ExtResource("3_qwep4")
+
+[sub_resource type="LabelSettings" id="LabelSettings_at201"]
+font = ExtResource("3_qwep4")
+font_size = 20
+
+[sub_resource type="LabelSettings" id="LabelSettings_im0db"]
+font = ExtResource("3_qwep4")
+font_size = 20
+
+[sub_resource type="LabelSettings" id="LabelSettings_ge6cq"]
+font = ExtResource("3_qwep4")
+
+[sub_resource type="LabelSettings" id="LabelSettings_jycgr"]
+font = ExtResource("3_qwep4")
+
+[sub_resource type="LabelSettings" id="LabelSettings_yklgg"]
+font = ExtResource("3_qwep4")
+font_size = 25
+
+[sub_resource type="LabelSettings" id="LabelSettings_vbqpa"]
+font = ExtResource("3_qwep4")
+font_size = 20
+
+[sub_resource type="LabelSettings" id="LabelSettings_pobgk"]
+font = ExtResource("3_qwep4")
+font_size = 40
+
+[sub_resource type="LabelSettings" id="LabelSettings_tty63"]
+font = ExtResource("3_qwep4")
+font_size = 40
+
+[sub_resource type="LabelSettings" id="LabelSettings_u4sea"]
+font = ExtResource("3_qwep4")
+font_size = 40
+
+[sub_resource type="LabelSettings" id="LabelSettings_jtu76"]
+font = ExtResource("3_qwep4")
+font_size = 22
+
+[sub_resource type="LabelSettings" id="LabelSettings_mbehe"]
+font = ExtResource("3_qwep4")
+font_size = 40
+
+[sub_resource type="LabelSettings" id="LabelSettings_l14id"]
+font = ExtResource("3_qwep4")
+font_size = 30
+
+[node name="Setting" type="Node"]
+script = ExtResource("1_2f16f")
+
+[node name="Ui" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureRect" type="TextureRect" parent="Ui"]
+layout_mode = 0
+offset_right = 1200.0
+offset_bottom = 740.0
+texture = ExtResource("2_l076y")
+metadata/_edit_lock_ = true
+
+[node name="ColorRect" type="ColorRect" parent="Ui"]
+layout_mode = 0
+offset_right = 1200.0
+offset_bottom = 740.0
+color = Color(0, 0, 0, 0.470588)
+metadata/_edit_lock_ = true
+
+[node name="Scroller" type="ScrollContainer" parent="Ui"]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 50.0
+offset_right = 1100.0
+offset_bottom = 650.0
+follow_focus = true
+scroll_vertical = 100
+horizontal_scroll_mode = 0
+metadata/_edit_lock_ = true
+
+[node name="Settings" type="VBoxContainer" parent="Ui/Scroller"]
+layout_mode = 2
+
+[node name="General" type="VBoxContainer" parent="Ui/Scroller/Settings"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Label" type="Label" parent="Ui/Scroller/Settings/General"]
+layout_mode = 2
+text = "一般的な設定"
+label_settings = SubResource("LabelSettings_xgtqf")
+
+[node name="Gamemode" type="HBoxContainer" parent="Ui/Scroller/Settings/General"]
+custom_minimum_size = Vector2(1000, 0)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Ui/Scroller/Settings/General/Gamemode"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+text = "ゲームモード："
+label_settings = SubResource("LabelSettings_c7hyi")
+horizontal_alignment = 2
+
+[node name="GamemodeOptionButton" type="OptionButton" parent="Ui/Scroller/Settings/General/Gamemode"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_qwep4")
+theme_override_font_sizes/font_size = 40
+alignment = 1
+item_count = 2
+selected = 0
+allow_reselect = true
+popup/item_0/text = "スコアモード"
+popup/item_0/id = 0
+popup/item_1/text = "タイムモード"
+popup/item_1/id = 1
+
+[node name="Difficulty" type="HBoxContainer" parent="Ui/Scroller/Settings/General"]
+custom_minimum_size = Vector2(1000, 0)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Ui/Scroller/Settings/General/Difficulty"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+text = "難易度："
+label_settings = SubResource("LabelSettings_c7hyi")
+horizontal_alignment = 2
+
+[node name="DifficultyOptionButton" type="OptionButton" parent="Ui/Scroller/Settings/General/Difficulty"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_qwep4")
+theme_override_font_sizes/font_size = 40
+alignment = 1
+item_count = 2
+selected = 0
+allow_reselect = true
+popup/item_0/text = "ノーマル"
+popup/item_0/id = 0
+popup/item_1/text = "ハード"
+popup/item_1/id = 1
+
+[node name="AmbientSounds" type="HBoxContainer" parent="Ui/Scroller/Settings/General"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Ui/Scroller/Settings/General/AmbientSounds"]
+layout_mode = 2
+text = "環境音を無効にする："
+label_settings = SubResource("LabelSettings_f13py")
+
+[node name="DisableAmbiSoundOptionButton" type="OptionButton" parent="Ui/Scroller/Settings/General/AmbientSounds"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_qwep4")
+theme_override_font_sizes/font_size = 40
+alignment = 1
+item_count = 2
+selected = 1
+allow_reselect = true
+popup/item_0/text = "はい"
+popup/item_0/id = 0
+popup/item_1/text = "いいえ"
+popup/item_1/id = 1
+
+[node name="HSeparator" type="HSeparator" parent="Ui/Scroller/Settings/General"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+
+[node name="SavedDataViewer" type="VBoxContainer" parent="Ui/Scroller/Settings/General"]
+unique_name_in_owner = true
+layout_mode = 2
+script = ExtResource("4_s7cb7")
+
+[node name="Label" type="Label" parent="Ui/Scroller/Settings/General/SavedDataViewer"]
+layout_mode = 2
+text = "現在保存されているデータ："
+label_settings = SubResource("LabelSettings_44dgc")
+
+[node name="SavedData" type="HBoxContainer" parent="Ui/Scroller/Settings/General/SavedDataViewer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="ScoreNormal" type="VBoxContainer" parent="Ui/Scroller/Settings/General/SavedDataViewer/SavedData"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Ui/Scroller/Settings/General/SavedDataViewer/SavedData/ScoreNormal"]
+layout_mode = 2
+text = "スコア・ノーマル"
+label_settings = SubResource("LabelSettings_yyw8d")
+horizontal_alignment = 1
+
+[node name="Score" type="HBoxContainer" parent="Ui/Scroller/Settings/General/SavedDataViewer/SavedData/ScoreNormal"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Ui/Scroller/Settings/General/SavedDataViewer/SavedData/ScoreNormal/Score"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+text = "スコア："
+label_settings = SubResource("LabelSettings_at201")
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="Ui/Scroller/Settings/General/SavedDataViewer/SavedData/ScoreNormal/Score"]
+layout_mode = 2
+text = "000000"
+label_settings = SubResource("LabelSettings_im0db")
+
+[node name="KilledGrass" type="HBoxContainer" parent="Ui/Scroller/Settings/General/SavedDataViewer/SavedData/ScoreNormal"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Ui/Scroller/Settings/General/SavedDataViewer/SavedData/ScoreNormal/KilledGrass"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+text = "草を枯らした回数："
+label_settings = SubResource("LabelSettings_ge6cq")
+
+[node name="Label2" type="Label" parent="Ui/Scroller/Settings/General/SavedDataViewer/SavedData/ScoreNormal/KilledGrass"]
+layout_mode = 2
+text = "0"
+label_settings = SubResource("LabelSettings_jycgr")
+
+[node name="KilledTree" type="HBoxContainer" parent="Ui/Scroller/Settings/General/SavedDataViewer/SavedData/ScoreNormal"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Ui/Scroller/Settings/General/SavedDataViewer/SavedData/ScoreNormal/KilledTree"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+text = "木を枯らした回数："
+label_settings = SubResource("LabelSettings_ge6cq")
+
+[node name="Label2" type="Label" parent="Ui/Scroller/Settings/General/SavedDataViewer/SavedData/ScoreNormal/KilledTree"]
+layout_mode = 2
+text = "0"
+label_settings = SubResource("LabelSettings_jycgr")
+
+[node name="CarCrashed" type="HBoxContainer" parent="Ui/Scroller/Settings/General/SavedDataViewer/SavedData/ScoreNormal"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Ui/Scroller/Settings/General/SavedDataViewer/SavedData/ScoreNormal/CarCrashed"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+text = "車に轢かれた回数："
+label_settings = SubResource("LabelSettings_ge6cq")
+
+[node name="Label2" type="Label" parent="Ui/Scroller/Settings/General/SavedDataViewer/SavedData/ScoreNormal/CarCrashed"]
+layout_mode = 2
+text = "0"
+label_settings = SubResource("LabelSettings_jycgr")
+
+[node name="ScoreHard" type="VBoxContainer" parent="Ui/Scroller/Settings/General/SavedDataViewer/SavedData"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Ui/Scroller/Settings/General/SavedDataViewer/SavedData/ScoreHard"]
+layout_mode = 2
+text = "スコア・ハード"
+label_settings = SubResource("LabelSettings_yyw8d")
+horizontal_alignment = 1
+
+[node name="Score" type="HBoxContainer" parent="Ui/Scroller/Settings/General/SavedDataViewer/SavedData/ScoreHard"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Ui/Scroller/Settings/General/SavedDataViewer/SavedData/ScoreHard/Score"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+text = "スコア："
+label_settings = SubResource("LabelSettings_at201")
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="Ui/Scroller/Settings/General/SavedDataViewer/SavedData/ScoreHard/Score"]
+layout_mode = 2
+text = "000000"
+label_settings = SubResource("LabelSettings_im0db")
+
+[node name="KilledGrass" type="HBoxContainer" parent="Ui/Scroller/Settings/General/SavedDataViewer/SavedData/ScoreHard"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Ui/Scroller/Settings/General/SavedDataViewer/SavedData/ScoreHard/KilledGrass"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+text = "草を枯らした回数："
+label_settings = SubResource("LabelSettings_ge6cq")
+
+[node name="Label2" type="Label" parent="Ui/Scroller/Settings/General/SavedDataViewer/SavedData/ScoreHard/KilledGrass"]
+layout_mode = 2
+text = "0"
+label_settings = SubResource("LabelSettings_jycgr")
+
+[node name="KilledTree" type="HBoxContainer" parent="Ui/Scroller/Settings/General/SavedDataViewer/SavedData/ScoreHard"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Ui/Scroller/Settings/General/SavedDataViewer/SavedData/ScoreHard/KilledTree"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+text = "木を枯らした回数："
+label_settings = SubResource("LabelSettings_ge6cq")
+
+[node name="Label2" type="Label" parent="Ui/Scroller/Settings/General/SavedDataViewer/SavedData/ScoreHard/KilledTree"]
+layout_mode = 2
+text = "0"
+label_settings = SubResource("LabelSettings_jycgr")
+
+[node name="CarCrashed" type="HBoxContainer" parent="Ui/Scroller/Settings/General/SavedDataViewer/SavedData/ScoreHard"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Ui/Scroller/Settings/General/SavedDataViewer/SavedData/ScoreHard/CarCrashed"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+text = "車に轢かれた回数："
+label_settings = SubResource("LabelSettings_ge6cq")
+
+[node name="Label2" type="Label" parent="Ui/Scroller/Settings/General/SavedDataViewer/SavedData/ScoreHard/CarCrashed"]
+layout_mode = 2
+text = "0"
+label_settings = SubResource("LabelSettings_jycgr")
+
+[node name="TimeNormal" type="VBoxContainer" parent="Ui/Scroller/Settings/General/SavedDataViewer/SavedData"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Ui/Scroller/Settings/General/SavedDataViewer/SavedData/TimeNormal"]
+layout_mode = 2
+text = "タイム・ノーマル"
+label_settings = SubResource("LabelSettings_yyw8d")
+horizontal_alignment = 1
+
+[node name="Score" type="HBoxContainer" parent="Ui/Scroller/Settings/General/SavedDataViewer/SavedData/TimeNormal"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Ui/Scroller/Settings/General/SavedDataViewer/SavedData/TimeNormal/Score"]
+custom_minimum_size = Vector2(130, 0)
+layout_mode = 2
+text = "タイム："
+label_settings = SubResource("LabelSettings_at201")
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="Ui/Scroller/Settings/General/SavedDataViewer/SavedData/TimeNormal/Score"]
+layout_mode = 2
+text = "00:00.000"
+label_settings = SubResource("LabelSettings_im0db")
+
+[node name="CarCrashed" type="HBoxContainer" parent="Ui/Scroller/Settings/General/SavedDataViewer/SavedData/TimeNormal"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Ui/Scroller/Settings/General/SavedDataViewer/SavedData/TimeNormal/CarCrashed"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+text = "車に轢かれた回数："
+label_settings = SubResource("LabelSettings_ge6cq")
+
+[node name="Label2" type="Label" parent="Ui/Scroller/Settings/General/SavedDataViewer/SavedData/TimeNormal/CarCrashed"]
+layout_mode = 2
+text = "0"
+label_settings = SubResource("LabelSettings_jycgr")
+
+[node name="TimeHard" type="VBoxContainer" parent="Ui/Scroller/Settings/General/SavedDataViewer/SavedData"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Ui/Scroller/Settings/General/SavedDataViewer/SavedData/TimeHard"]
+layout_mode = 2
+text = "タイム・ハード"
+label_settings = SubResource("LabelSettings_yyw8d")
+horizontal_alignment = 1
+
+[node name="Score" type="HBoxContainer" parent="Ui/Scroller/Settings/General/SavedDataViewer/SavedData/TimeHard"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Ui/Scroller/Settings/General/SavedDataViewer/SavedData/TimeHard/Score"]
+custom_minimum_size = Vector2(130, 0)
+layout_mode = 2
+text = "タイム："
+label_settings = SubResource("LabelSettings_at201")
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="Ui/Scroller/Settings/General/SavedDataViewer/SavedData/TimeHard/Score"]
+layout_mode = 2
+text = "00:00.000"
+label_settings = SubResource("LabelSettings_im0db")
+
+[node name="CarCrashed" type="HBoxContainer" parent="Ui/Scroller/Settings/General/SavedDataViewer/SavedData/TimeHard"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Ui/Scroller/Settings/General/SavedDataViewer/SavedData/TimeHard/CarCrashed"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+text = "車に轢かれた回数："
+label_settings = SubResource("LabelSettings_ge6cq")
+
+[node name="Label2" type="Label" parent="Ui/Scroller/Settings/General/SavedDataViewer/SavedData/TimeHard/CarCrashed"]
+layout_mode = 2
+text = "0"
+label_settings = SubResource("LabelSettings_jycgr")
+
+[node name="SavedDataButtons" type="HBoxContainer" parent="Ui/Scroller/Settings/General/SavedDataViewer"]
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="ScoreNormalResetButton" type="Button" parent="Ui/Scroller/Settings/General/SavedDataViewer/SavedDataButtons"]
+custom_minimum_size = Vector2(248, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_qwep4")
+theme_override_font_sizes/font_size = 21
+text = "データをリセットする"
+
+[node name="ScoreHardResetButton" type="Button" parent="Ui/Scroller/Settings/General/SavedDataViewer/SavedDataButtons"]
+custom_minimum_size = Vector2(248, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_qwep4")
+theme_override_font_sizes/font_size = 21
+text = "データをリセットする"
+
+[node name="TimeNormalResetButton" type="Button" parent="Ui/Scroller/Settings/General/SavedDataViewer/SavedDataButtons"]
+custom_minimum_size = Vector2(248, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_qwep4")
+theme_override_font_sizes/font_size = 21
+text = "データをリセットする"
+
+[node name="TimeHardResetButton" type="Button" parent="Ui/Scroller/Settings/General/SavedDataViewer/SavedDataButtons"]
+custom_minimum_size = Vector2(248, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_qwep4")
+theme_override_font_sizes/font_size = 21
+text = "データをリセットする"
+
+[node name="DeleteSavedDataButton" type="Button" parent="Ui/Scroller/Settings/General/SavedDataViewer"]
+custom_minimum_size = Vector2(800, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("3_qwep4")
+theme_override_font_sizes/font_size = 20
+text = "あなたの情報をすべて削除する"
+
+[node name="HSeparator" type="HSeparator" parent="Ui/Scroller/Settings"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+
+[node name="Advanced" type="VBoxContainer" parent="Ui/Scroller/Settings"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Ui/Scroller/Settings/Advanced"]
+layout_mode = 2
+text = "高度な設定（これらを変更するとスコアやタイムの保存ができなくなります）"
+label_settings = SubResource("LabelSettings_yklgg")
+
+[node name="Label2" type="Label" parent="Ui/Scroller/Settings/Advanced"]
+layout_mode = 2
+text = "（元に戻すことでまた保存することができます）"
+label_settings = SubResource("LabelSettings_vbqpa")
+horizontal_alignment = 1
+
+[node name="ShowGairojuHealth" type="HBoxContainer" parent="Ui/Scroller/Settings/Advanced"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Ui/Scroller/Settings/Advanced/ShowGairojuHealth"]
+custom_minimum_size = Vector2(560, 0)
+layout_mode = 2
+text = "街路樹の残りHPを表示する："
+label_settings = SubResource("LabelSettings_pobgk")
+horizontal_alignment = 2
+
+[node name="ShowGairojuHealthOptionButton" type="OptionButton" parent="Ui/Scroller/Settings/Advanced/ShowGairojuHealth"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_qwep4")
+theme_override_font_sizes/font_size = 40
+alignment = 1
+item_count = 2
+selected = 1
+popup/item_0/text = "はい"
+popup/item_0/id = 0
+popup/item_1/text = "いいえ"
+popup/item_1/id = 1
+
+[node name="ShowJosouzaiZanryo" type="HBoxContainer" parent="Ui/Scroller/Settings/Advanced"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Ui/Scroller/Settings/Advanced/ShowJosouzaiZanryo"]
+layout_mode = 2
+text = "除草剤残量を詳細に表示する："
+label_settings = SubResource("LabelSettings_tty63")
+
+[node name="ShowJosouzaiZanryoOptionButton" type="OptionButton" parent="Ui/Scroller/Settings/Advanced/ShowJosouzaiZanryo"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_qwep4")
+theme_override_font_sizes/font_size = 40
+alignment = 1
+item_count = 2
+selected = 1
+popup/item_0/text = "はい"
+popup/item_0/id = 0
+popup/item_1/text = "いいえ"
+popup/item_1/id = 1
+
+[node name="EnableInfinityJosouzai" type="HBoxContainer" parent="Ui/Scroller/Settings/Advanced"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Ui/Scroller/Settings/Advanced/EnableInfinityJosouzai"]
+layout_mode = 2
+text = "除草剤残量の減少を停止する："
+label_settings = SubResource("LabelSettings_u4sea")
+
+[node name="EnableInfinityJosouzaiOptionButton" type="OptionButton" parent="Ui/Scroller/Settings/Advanced/EnableInfinityJosouzai"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_qwep4")
+theme_override_font_sizes/font_size = 40
+alignment = 1
+item_count = 2
+selected = 1
+popup/item_0/text = "はい"
+popup/item_0/id = 0
+popup/item_1/text = "いいえ"
+popup/item_1/id = 1
+
+[node name="EnableInvincibleMode" type="HBoxContainer" parent="Ui/Scroller/Settings/Advanced"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Ui/Scroller/Settings/Advanced/EnableInvincibleMode"]
+custom_minimum_size = Vector2(560, 0)
+layout_mode = 2
+text = "靴下にゴルフボールを入れて振り回す（無敵モード）："
+label_settings = SubResource("LabelSettings_jtu76")
+
+[node name="EnableInvincibleModeOptionButton" type="OptionButton" parent="Ui/Scroller/Settings/Advanced/EnableInvincibleMode"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_qwep4")
+theme_override_font_sizes/font_size = 40
+alignment = 1
+item_count = 2
+selected = 1
+popup/item_0/text = "はい"
+popup/item_0/id = 0
+popup/item_1/text = "いいえ"
+popup/item_1/id = 1
+
+[node name="HSeparator2" type="HSeparator" parent="Ui/Scroller/Settings"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+
+[node name="Buttons" type="HBoxContainer" parent="Ui"]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 640.0
+offset_right = 1100.0
+offset_bottom = 740.0
+theme_override_constants/separation = 20
+alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="BackButton" type="Button" parent="Ui/Buttons"]
+custom_minimum_size = Vector2(200, 70)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 30
+text = "タイトル画面に戻る"
+
+[node name="ResetSettingButton" type="Button" parent="Ui/Buttons"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 70)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 26
+text = "全ての設定を戻す"
+
+[node name="ConfirmScreen" type="Control" parent="Ui"]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="Ui/ConfirmScreen"]
+layout_mode = 0
+offset_right = 1200.0
+offset_bottom = 740.0
+color = Color(0, 0, 0, 0.588235)
+metadata/_edit_lock_ = true
+
+[node name="Confirm" type="VBoxContainer" parent="Ui/ConfirmScreen"]
+layout_mode = 0
+offset_left = 50.0
+offset_top = 50.0
+offset_right = 1150.0
+offset_bottom = 690.0
+metadata/_edit_lock_ = true
+
+[node name="Label" type="Label" parent="Ui/ConfirmScreen/Confirm"]
+layout_mode = 2
+text = "<確認>"
+label_settings = SubResource("LabelSettings_mbehe")
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="Ui/ConfirmScreen/Confirm"]
+layout_mode = 2
+text = "あなたの情報を本当にすべて削除しますか？
+削除すると二度と元には戻りません。
+マジで。マジロイガ。
+
+削除するとゲームが強制的に終了します。"
+label_settings = SubResource("LabelSettings_l14id")
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="Ui/ConfirmScreen/Confirm"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+
+[node name="Choice" type="HBoxContainer" parent="Ui/ConfirmScreen/Confirm"]
+layout_mode = 2
+alignment = 1
+
+[node name="DeleteButton" type="Button" parent="Ui/ConfirmScreen/Confirm/Choice"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+focus_neighbor_left = NodePath("../CancelDeleteButton")
+theme_override_fonts/font = ExtResource("3_qwep4")
+theme_override_font_sizes/font_size = 30
+text = "消す"
+
+[node name="CancelDeleteButton" type="Button" parent="Ui/ConfirmScreen/Confirm/Choice"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+focus_neighbor_right = NodePath("../DeleteButton")
+theme_override_fonts/font = ExtResource("3_qwep4")
+theme_override_font_sizes/font_size = 30
+text = "消さない"
+
+[connection signal="pressed" from="Ui/Scroller/Settings/General/SavedDataViewer/SavedDataButtons/ScoreNormalResetButton" to="." method="_on_data_reset_buttons_pressed" binds= [0, 0]]
+[connection signal="pressed" from="Ui/Scroller/Settings/General/SavedDataViewer/SavedDataButtons/ScoreHardResetButton" to="." method="_on_data_reset_buttons_pressed" binds= [0, 1]]
+[connection signal="pressed" from="Ui/Scroller/Settings/General/SavedDataViewer/SavedDataButtons/TimeNormalResetButton" to="." method="_on_data_reset_buttons_pressed" binds= [1, 0]]
+[connection signal="pressed" from="Ui/Scroller/Settings/General/SavedDataViewer/SavedDataButtons/TimeHardResetButton" to="." method="_on_data_reset_buttons_pressed" binds= [1, 1]]
+[connection signal="pressed" from="Ui/Scroller/Settings/General/SavedDataViewer/DeleteSavedDataButton" to="." method="_on_delete_saved_data_button_pressed"]
+[connection signal="pressed" from="Ui/Buttons/BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="Ui/Buttons/ResetSettingButton" to="." method="_on_reset_setting_button_pressed"]
+[connection signal="pressed" from="Ui/ConfirmScreen/Confirm/Choice/DeleteButton" to="." method="_on_delete_button_pressed"]
+[connection signal="pressed" from="Ui/ConfirmScreen/Confirm/Choice/CancelDeleteButton" to="." method="_on_cancel_delete_button_pressed"]

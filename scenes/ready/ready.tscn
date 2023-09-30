@@ -1,0 +1,45 @@
+[gd_scene load_steps=6 format=3 uid="uid://yofi1n4wuwr4"]
+
+[ext_resource type="Script" path="res://scenes/ready/ready.gd" id="1_3dtir"]
+[ext_resource type="FontFile" uid="uid://cw4i3i5gly5i" path="res://font/mplus-1c-regular.ttf" id="2_go64j"]
+[ext_resource type="AudioStream" uid="uid://cfx1ufytsb5f3" path="res://sounds/ready.mp3" id="3_mi12j"]
+[ext_resource type="AudioStream" uid="uid://bqtdfqed1grs2" path="res://sounds/start.mp3" id="4_xmip1"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_1o705"]
+font = ExtResource("2_go64j")
+font_size = 180
+
+[node name="Ready" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_3dtir")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 185.0
+offset_right = 1100.0
+offset_bottom = 555.0
+color = Color(0, 0, 0, 0.392157)
+metadata/_edit_lock_ = true
+
+[node name="Label" type="Label" parent="."]
+custom_minimum_size = Vector2(800, 260)
+layout_mode = 0
+offset_left = 200.0
+offset_top = 244.0
+offset_right = 1000.0
+offset_bottom = 499.0
+text = "READY??"
+label_settings = SubResource("LabelSettings_1o705")
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="ReadySound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_mi12j")
+
+[node name="StartSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_xmip1")
+
+[node name="Timer" type="Timer" parent="."]

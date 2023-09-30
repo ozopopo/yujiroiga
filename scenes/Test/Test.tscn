@@ -1,0 +1,124 @@
+[gd_scene load_steps=12 format=3 uid="uid://bmeaqly5fu6jo"]
+
+[ext_resource type="Script" path="res://scenes/Test/test.gd" id="1_bf711"]
+[ext_resource type="Texture2D" uid="uid://cmatdpwm0nric" path="res://img/background/testBG.jpeg" id="1_oh4ls"]
+[ext_resource type="PackedScene" uid="uid://dc01b2q865a5d" path="res://scenes/Player2/player2.tscn" id="3_8b4kt"]
+[ext_resource type="PackedScene" uid="uid://bw3qmith78iol" path="res://scenes/josouzai/josouzai.tscn" id="3_c2he5"]
+[ext_resource type="PackedScene" uid="uid://csj83mkgp051p" path="res://scenes/Player2/player.tscn" id="4_75boj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ilesv"]
+size = Vector2(204, 59)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_km143"]
+radius = 51.6236
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q5yym"]
+size = Vector2(20, 280)
+
+[sub_resource type="Gradient" id="Gradient_s4egj"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_fmmeo"]
+gradient = SubResource("Gradient_s4egj")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_opkw7"]
+size = Vector2(64, 63)
+
+[node name="Test" type="Node"]
+script = ExtResource("1_bf711")
+
+[node name="Ui" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureRect" type="TextureRect" parent="Ui"]
+layout_mode = 0
+offset_right = 1200.0
+offset_bottom = 740.0
+texture = ExtResource("1_oh4ls")
+expand_mode = 1
+metadata/_edit_lock_ = true
+
+[node name="Set" type="Button" parent="Ui"]
+layout_mode = 0
+offset_left = 701.0
+offset_top = 222.0
+offset_right = 880.0
+offset_bottom = 253.0
+text = "set"
+
+[node name="Get" type="Button" parent="Ui"]
+layout_mode = 0
+offset_left = 325.0
+offset_top = 221.0
+offset_right = 504.0
+offset_bottom = 252.0
+text = "get"
+
+[node name="Get2" type="Button" parent="Ui"]
+layout_mode = 0
+offset_left = 446.0
+offset_top = 99.0
+offset_right = 625.0
+offset_bottom = 130.0
+text = "recovery"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Ui"]
+layout_mode = 0
+offset_top = 306.0
+offset_right = 1200.0
+offset_bottom = 724.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Ui/ScrollContainer"]
+layout_mode = 2
+
+[node name="Josouzai" parent="." instance=ExtResource("3_c2he5")]
+visible = false
+position = Vector2(422, 326)
+
+[node name="Player2" parent="." instance=ExtResource("3_8b4kt")]
+position = Vector2(78, 101)
+scale = Vector2(2, 2)
+collision_mask = 2
+
+[node name="Player" parent="." instance=ExtResource("4_75boj")]
+position = Vector2(181, 99)
+scale = Vector2(2, 2)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+visible = false
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(416, 124.5)
+shape = SubResource("RectangleShape2D_ilesv")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(140, 256)
+shape = SubResource("CircleShape2D_km143")
+
+[node name="FuckinWall" type="Area2D" parent="."]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FuckinWall"]
+position = Vector2(260, 149)
+shape = SubResource("RectangleShape2D_q5yym")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+visible = false
+collision_layer = 2
+collision_mask = 6
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+texture = SubResource("GradientTexture2D_fmmeo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+shape = SubResource("RectangleShape2D_opkw7")
+
+[node name="Josouzai2" parent="." instance=ExtResource("3_c2he5")]
+visible = false
+
+[connection signal="pressed" from="Ui/Set" to="." method="_on_set_pressed"]
+[connection signal="pressed" from="Ui/Get" to="." method="_on_get_pressed"]
+[connection signal="pressed" from="Ui/Get2" to="." method="_on_get_2_pressed"]

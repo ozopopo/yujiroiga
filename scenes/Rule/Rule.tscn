@@ -1,0 +1,323 @@
+[gd_scene load_steps=23 format=3 uid="uid://b8fnl84c4b3so"]
+
+[ext_resource type="Script" path="res://scenes/Rule/rule.gd" id="1_e78sq"]
+[ext_resource type="Texture2D" uid="uid://cps4irbjkxek0" path="res://img/background/back.jpg" id="2_rgw1d"]
+[ext_resource type="PackedScene" uid="uid://dc01b2q865a5d" path="res://scenes/Player2/player2.tscn" id="3_5r71e"]
+[ext_resource type="FontFile" uid="uid://cw4i3i5gly5i" path="res://font/mplus-1c-regular.ttf" id="3_cdc7r"]
+[ext_resource type="PackedScene" uid="uid://bu4kg657ywafu" path="res://scenes/ki/ki.tscn" id="5_t7owi"]
+[ext_resource type="PackedScene" uid="uid://ri3l58jtm05e" path="res://scenes/kusa/kusa.tscn" id="6_4g5wn"]
+[ext_resource type="PackedScene" uid="uid://c80562etr1nq6" path="res://scenes/car/car.tscn" id="7_hyqat"]
+[ext_resource type="PackedScene" uid="uid://bw3qmith78iol" path="res://scenes/josouzai/josouzai.tscn" id="8_qi58q"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_gmnpb"]
+font = ExtResource("3_cdc7r")
+font_size = 20
+
+[sub_resource type="LabelSettings" id="LabelSettings_8o1q8"]
+font = ExtResource("3_cdc7r")
+font_size = 20
+
+[sub_resource type="LabelSettings" id="LabelSettings_d5x8p"]
+font = ExtResource("3_cdc7r")
+font_size = 20
+
+[sub_resource type="LabelSettings" id="LabelSettings_3j06a"]
+font = ExtResource("3_cdc7r")
+font_size = 15
+
+[sub_resource type="LabelSettings" id="LabelSettings_mbnb0"]
+font = ExtResource("3_cdc7r")
+font_size = 13
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i5m52"]
+size = Vector2(20, 740)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3rq62"]
+size = Vector2(1200, 20)
+
+[sub_resource type="LabelSettings" id="LabelSettings_mt2fd"]
+font = ExtResource("3_cdc7r")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y7w21"]
+bg_color = Color(0, 1, 0, 0.54902)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="LabelSettings" id="LabelSettings_qvqvw"]
+font = ExtResource("3_cdc7r")
+font_size = 23
+
+[sub_resource type="LabelSettings" id="LabelSettings_rpj51"]
+font = ExtResource("3_cdc7r")
+font_size = 20
+
+[sub_resource type="LabelSettings" id="LabelSettings_xvrl2"]
+font = ExtResource("3_cdc7r")
+font_size = 40
+
+[sub_resource type="LabelSettings" id="LabelSettings_nymla"]
+font = ExtResource("3_cdc7r")
+font_size = 40
+
+[sub_resource type="LabelSettings" id="LabelSettings_tb157"]
+font = ExtResource("3_cdc7r")
+font_size = 40
+
+[node name="Rule" type="Node"]
+script = ExtResource("1_e78sq")
+
+[node name="Ui" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="TextureRect" type="TextureRect" parent="Ui"]
+layout_mode = 0
+offset_right = 1200.0
+offset_bottom = 740.0
+texture = ExtResource("2_rgw1d")
+
+[node name="ColorRect" type="ColorRect" parent="Ui"]
+layout_mode = 0
+offset_right = 1200.0
+offset_bottom = 740.0
+color = Color(0, 0, 0, 0.470588)
+
+[node name="Rule0" type="VBoxContainer" parent="Ui"]
+layout_mode = 0
+offset_right = 1200.0
+offset_bottom = 670.0
+
+[node name="GameObjects" type="Node2D" parent="Ui/Rule0"]
+
+[node name="Player" parent="Ui/Rule0/GameObjects" instance=ExtResource("3_5r71e")]
+position = Vector2(116, 563)
+scale = Vector2(2, 2)
+
+[node name="PlayerLabel" type="Label" parent="Ui/Rule0/GameObjects"]
+offset_left = 70.0
+offset_top = 587.0
+offset_right = 170.0
+offset_bottom = 619.0
+text = "プレイヤー"
+label_settings = SubResource("LabelSettings_gmnpb")
+
+[node name="Ki" parent="Ui/Rule0/GameObjects" instance=ExtResource("5_t7owi")]
+position = Vector2(348, 586)
+health = 100000
+
+[node name="KiLabel" type="Label" parent="Ui/Rule0/GameObjects"]
+offset_left = 340.0
+offset_top = 601.0
+offset_right = 360.0
+offset_bottom = 633.0
+text = "木"
+label_settings = SubResource("LabelSettings_gmnpb")
+
+[node name="Kusa" parent="Ui/Rule0/GameObjects" instance=ExtResource("6_4g5wn")]
+position = Vector2(537, 567)
+scale = Vector2(1.5, 1.5)
+health = 50000
+
+[node name="KusaLabel" type="Label" parent="Ui/Rule0/GameObjects"]
+offset_left = 526.0
+offset_top = 599.0
+offset_right = 548.0
+offset_bottom = 631.0
+text = "草"
+label_settings = SubResource("LabelSettings_8o1q8")
+
+[node name="Car" parent="Ui/Rule0/GameObjects" instance=ExtResource("7_hyqat")]
+position = Vector2(743, 564)
+speed = 0.0
+
+[node name="CarLabel" type="Label" parent="Ui/Rule0/GameObjects"]
+offset_left = 735.0
+offset_top = 599.0
+offset_right = 757.0
+offset_bottom = 631.0
+text = "車"
+label_settings = SubResource("LabelSettings_d5x8p")
+
+[node name="Josouzai" parent="Ui/Rule0/GameObjects" instance=ExtResource("8_qi58q")]
+position = Vector2(978, 575)
+
+[node name="JosouzaiLabel" type="Label" parent="Ui/Rule0/GameObjects"]
+offset_left = 895.0
+offset_top = 605.0
+offset_right = 1075.0
+offset_bottom = 630.0
+text = "どこかに落ちている除草剤"
+label_settings = SubResource("LabelSettings_3j06a")
+
+[node name="GairojuLabel" type="Label" parent="Ui/Rule0/GameObjects"]
+offset_left = 326.0
+offset_top = 625.0
+offset_right = 564.0
+offset_bottom = 647.0
+text = "※実際は草と木にHPは表示されません。"
+label_settings = SubResource("LabelSettings_mbnb0")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Ui/Rule0/GameObjects"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ui/Rule0/GameObjects/StaticBody2D"]
+position = Vector2(-10, 370)
+shape = SubResource("RectangleShape2D_i5m52")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Ui/Rule0/GameObjects/StaticBody2D"]
+position = Vector2(1210, 370)
+shape = SubResource("RectangleShape2D_i5m52")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Ui/Rule0/GameObjects/StaticBody2D"]
+position = Vector2(600, -10)
+shape = SubResource("RectangleShape2D_3rq62")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Ui/Rule0/GameObjects/StaticBody2D"]
+position = Vector2(600, 750)
+shape = SubResource("RectangleShape2D_3rq62")
+
+[node name="Label" type="Label" parent="Ui/Rule0/GameObjects"]
+offset_left = 929.0
+offset_top = -1.0
+offset_right = 1025.0
+offset_bottom = 26.0
+text = "除草剤残量："
+label_settings = SubResource("LabelSettings_mt2fd")
+
+[node name="JosouzaiPercentage" type="ProgressBar" parent="Ui/Rule0/GameObjects"]
+unique_name_in_owner = true
+offset_left = 929.0
+offset_top = 27.0
+offset_right = 1196.0
+offset_bottom = 61.0
+theme_override_styles/fill = SubResource("StyleBoxFlat_y7w21")
+
+[node name="Label" type="Label" parent="Ui/Rule0"]
+layout_mode = 2
+text = "ユジロイガとは
+
+古代から伝わる、\"イザーソヨジ\"と呼ばれる、これを植物にかけるとその植物が枯れるものを撒き、
+景観を良くしようとした昔の人の儀式のことである。（適当）
+
+反対から読んだら何か分かるかもしれません。"
+label_settings = SubResource("LabelSettings_gmnpb")
+
+[node name="HSeparator" type="HSeparator" parent="Ui/Rule0"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="Label3" type="Label" parent="Ui/Rule0"]
+layout_mode = 2
+text = "ルール
+
+プレイヤーを動かし、除草剤を生えている草や木に当てましょう。すると消滅したり枯れていきます。
+この世界では、車が走っているので車をよけましょう。
+幸いあなたは、車に轢かれてもしばらく動けなくなるだけで済む体なので、死にはしません。
+また、この世界では歩道にも車が走っているらしいのでご注意を。
+もし除草剤がなくなったら、どこかに落ちている除草剤を拾うか、しばらく待つことで除草剤残量を100％に戻すことができます。"
+label_settings = SubResource("LabelSettings_gmnpb")
+
+[node name="Label2" type="Label" parent="Ui/Rule0"]
+layout_mode = 2
+text = "操作方法は次のページに書いてあります。"
+label_settings = SubResource("LabelSettings_qvqvw")
+
+[node name="Rule1" type="VBoxContainer" parent="Ui"]
+visible = false
+layout_mode = 0
+offset_right = 1200.0
+offset_bottom = 670.0
+
+[node name="Label" type="Label" parent="Ui/Rule1"]
+layout_mode = 2
+text = "操作方法
+
+WASDキー、十字キーで移動
+左クリック、スペースキーで除草剤を散布する
+エンターキー、ESCキーで一時停止
+F11キーでフルスクリーン"
+label_settings = SubResource("LabelSettings_rpj51")
+
+[node name="Rule2" type="VBoxContainer" parent="Ui"]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="Ui/Rule2"]
+layout_mode = 2
+text = "ゲームモードと難易度について
+
+Ver. 1.3から、新しく「ゲームモード」と、「難易度」の概念が追加されました。
+以下がそれぞれのゲームモード、難易度の特徴です。
+
+ゲームモード
+「スコア」
+これまでのゲームと同じ、１分内にどれぐらい街路樹を枯らせるかのスコアで競うモードです。
+詳細に保存される記録として、「草を枯らした回数」、「木を枯らした回数」、「車に轢かれた回数」の３つがあります。
+
+「タイム」
+エリア内にあるすべての街路樹をどれだけ早く枯らせるかのタイムで競うモードです。
+詳細に保存される記録は、「車に轢かれた回数」だけです。
+
+難易度
+「ノーマル」
+これまでのゲームと同じ、昼間で視界が良く、すべてが見渡せます。
+
+「ハード」
+夜中でとても暗く、視界がとても悪いので、近づかないと街路樹が視認できません。
+また、何故か除草剤残量の減少スピードが増加しています。"
+label_settings = SubResource("LabelSettings_rpj51")
+
+[node name="PageControler" type="HBoxContainer" parent="Ui"]
+layout_mode = 0
+offset_top = 670.0
+offset_right = 1200.0
+offset_bottom = 740.0
+theme_override_constants/separation = 50
+alignment = 1
+
+[node name="BackButton" type="Button" parent="Ui/PageControler"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "← 戻る"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Ui/PageControler"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="CurrentPage" type="Label" parent="Ui/PageControler/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "01"
+label_settings = SubResource("LabelSettings_xvrl2")
+
+[node name="Per" type="Label" parent="Ui/PageControler/HBoxContainer"]
+layout_mode = 2
+text = "/"
+label_settings = SubResource("LabelSettings_nymla")
+
+[node name="TotalPage" type="Label" parent="Ui/PageControler/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "02"
+label_settings = SubResource("LabelSettings_tb157")
+
+[node name="ForwardButton" type="Button" parent="Ui/PageControler"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "進む →"
+
+[node name="PauseMenuSound" type="AudioStreamPlayer" parent="."]
+
+[connection signal="pressed" from="Ui/PageControler/BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="Ui/PageControler/ForwardButton" to="." method="_on_forward_button_pressed"]

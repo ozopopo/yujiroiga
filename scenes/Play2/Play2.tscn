@@ -1,0 +1,892 @@
+[gd_scene load_steps=55 format=3 uid="uid://bmsgtstgprmkp"]
+
+[ext_resource type="Script" path="res://scenes/Play2/play2.gd" id="1_ipct0"]
+[ext_resource type="PackedScene" uid="uid://bmqlkb7xfbkax" path="res://scenes/douro.tscn" id="2_b2q0i"]
+[ext_resource type="PackedScene" uid="uid://dc01b2q865a5d" path="res://player2.tscn" id="3_t12tb"]
+[ext_resource type="PackedScene" uid="uid://c80562etr1nq6" path="res://scenes/car/car.tscn" id="3_uv1bw"]
+[ext_resource type="FontFile" uid="uid://cw4i3i5gly5i" path="res://font/mplus-1c-regular.ttf" id="4_qrr58"]
+[ext_resource type="PackedScene" uid="uid://yofi1n4wuwr4" path="res://ready.tscn" id="6_7rd2i"]
+[ext_resource type="AudioStream" uid="uid://bi1peyvprbcnm" path="res://sounds/open_menu.mp3" id="7_q1me2"]
+[ext_resource type="AudioStream" uid="uid://dyas2kleui1hd" path="res://sounds/play_hard_ambient.mp3" id="8_5lyr8"]
+[ext_resource type="AudioStream" uid="uid://bfhoxujat01uh" path="res://sounds/play_ambient.mp3" id="8_psv82"]
+[ext_resource type="AudioStream" uid="uid://21lrhfs6s4vd" path="res://sounds/finish.mp3" id="10_aosyi"]
+
+[sub_resource type="Gradient" id="Gradient_ks157"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_o2v3x"]
+gradient = SubResource("Gradient_ks157")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.75, 0.25)
+
+[sub_resource type="Gradient" id="Gradient_83fdb"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_rtl33"]
+gradient = SubResource("Gradient_83fdb")
+width = 128
+height = 128
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.75, 0.25)
+
+[sub_resource type="Gradient" id="Gradient_yrdhl"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_yods5"]
+gradient = SubResource("Gradient_yrdhl")
+width = 128
+height = 128
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.75, 0.25)
+
+[sub_resource type="Gradient" id="Gradient_1oo16"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_1ga0b"]
+gradient = SubResource("Gradient_1oo16")
+width = 128
+height = 128
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.75, 0.25)
+
+[sub_resource type="Gradient" id="Gradient_bq4t0"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_4n1bd"]
+gradient = SubResource("Gradient_bq4t0")
+width = 128
+height = 128
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.75, 0.25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3g1np"]
+size = Vector2(32, 1240)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hnoj6"]
+size = Vector2(32, 1240)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qdrfg"]
+size = Vector2(4416, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_812u1"]
+size = Vector2(4416, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_prwlg"]
+size = Vector2(672, 96)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8iukg"]
+size = Vector2(528, 96)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n6g4y"]
+size = Vector2(673, 96)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ouesx"]
+size = Vector2(528, 96)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_175lu"]
+size = Vector2(384, 96)
+
+[sub_resource type="LabelSettings" id="LabelSettings_xmd1l"]
+font = ExtResource("4_qrr58")
+font_size = 30
+
+[sub_resource type="LabelSettings" id="LabelSettings_161rm"]
+font = ExtResource("4_qrr58")
+font_size = 30
+
+[sub_resource type="LabelSettings" id="LabelSettings_akb6g"]
+font = ExtResource("4_qrr58")
+font_size = 30
+
+[sub_resource type="LabelSettings" id="LabelSettings_e2epr"]
+font = ExtResource("4_qrr58")
+font_size = 30
+
+[sub_resource type="LabelSettings" id="LabelSettings_6q80p"]
+font = ExtResource("4_qrr58")
+font_size = 30
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7i5u1"]
+bg_color = Color(0, 1, 0, 0.54902)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="LabelSettings" id="LabelSettings_f2u87"]
+font = ExtResource("4_qrr58")
+font_size = 50
+
+[sub_resource type="LabelSettings" id="LabelSettings_1rkdu"]
+font = ExtResource("4_qrr58")
+font_size = 50
+
+[sub_resource type="LabelSettings" id="LabelSettings_x01dq"]
+font = ExtResource("4_qrr58")
+font_size = 120
+
+[sub_resource type="LabelSettings" id="LabelSettings_xptmu"]
+font = ExtResource("4_qrr58")
+font_size = 33
+
+[sub_resource type="LabelSettings" id="LabelSettings_lei6m"]
+font = ExtResource("4_qrr58")
+font_size = 33
+
+[sub_resource type="LabelSettings" id="LabelSettings_sayr8"]
+font = ExtResource("4_qrr58")
+font_size = 30
+
+[sub_resource type="LabelSettings" id="LabelSettings_l2vtk"]
+font = ExtResource("4_qrr58")
+font_size = 30
+
+[sub_resource type="LabelSettings" id="LabelSettings_vxtkq"]
+font = ExtResource("4_qrr58")
+font_size = 30
+
+[sub_resource type="LabelSettings" id="LabelSettings_u3cyw"]
+font = ExtResource("4_qrr58")
+font_size = 30
+
+[sub_resource type="LabelSettings" id="LabelSettings_watow"]
+font = ExtResource("4_qrr58")
+font_size = 30
+
+[sub_resource type="LabelSettings" id="LabelSettings_187e0"]
+font = ExtResource("4_qrr58")
+font_size = 30
+
+[sub_resource type="LabelSettings" id="LabelSettings_ufy4h"]
+font = ExtResource("4_qrr58")
+font_size = 30
+
+[sub_resource type="LabelSettings" id="LabelSettings_o822a"]
+font = ExtResource("4_qrr58")
+font_size = 30
+
+[sub_resource type="LabelSettings" id="LabelSettings_y8bnl"]
+font = ExtResource("4_qrr58")
+font_size = 30
+
+[sub_resource type="LabelSettings" id="LabelSettings_nnlry"]
+font = ExtResource("4_qrr58")
+font_size = 30
+
+[sub_resource type="LabelSettings" id="LabelSettings_6atpk"]
+font = ExtResource("4_qrr58")
+font_size = 30
+
+[sub_resource type="LabelSettings" id="LabelSettings_0lrcc"]
+font = ExtResource("4_qrr58")
+font_size = 30
+
+[sub_resource type="LabelSettings" id="LabelSettings_y43my"]
+font = ExtResource("4_qrr58")
+font_size = 30
+
+[sub_resource type="LabelSettings" id="LabelSettings_10sop"]
+font = ExtResource("4_qrr58")
+font_size = 30
+
+[node name="Play2" type="Node"]
+script = ExtResource("1_ipct0")
+
+[node name="Lights" type="Node2D" parent="."]
+visible = false
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="Lights"]
+energy = 0.99
+blend_mode = 1
+
+[node name="PointLight2D" type="PointLight2D" parent="Lights"]
+scale = Vector2(3, 3)
+energy = 1.1
+texture = SubResource("GradientTexture2D_o2v3x")
+texture_scale = 3.0
+
+[node name="PointLight2D2" type="PointLight2D" parent="Lights"]
+visible = false
+position = Vector2(-454, -438)
+scale = Vector2(5.03125, 5.03125)
+energy = 1.29
+texture = SubResource("GradientTexture2D_rtl33")
+
+[node name="PointLight2D3" type="PointLight2D" parent="Lights"]
+visible = false
+position = Vector2(480, -420)
+scale = Vector2(5.03125, 5.03125)
+energy = 1.29
+texture = SubResource("GradientTexture2D_yods5")
+
+[node name="PointLight2D4" type="PointLight2D" parent="Lights"]
+visible = false
+position = Vector2(1304, -444)
+scale = Vector2(5.03125, 5.03125)
+energy = 1.29
+texture = SubResource("GradientTexture2D_1ga0b")
+
+[node name="PointLight2D5" type="PointLight2D" parent="Lights"]
+visible = false
+position = Vector2(1950, -444)
+scale = Vector2(5.03125, 5.03125)
+energy = 1.29
+texture = SubResource("GradientTexture2D_4n1bd")
+
+[node name="Douro" parent="." instance=ExtResource("2_b2q0i")]
+scale = Vector2(3, 3)
+
+[node name="PlayerRespawns" type="Node2D" parent="."]
+
+[node name="PlayerRespawn0" type="Marker2D" parent="PlayerRespawns"]
+position = Vector2(-2111, -438)
+metadata/_edit_lock_ = true
+
+[node name="PlayerRespawn1" type="Marker2D" parent="PlayerRespawns"]
+position = Vector2(-1192, -438)
+metadata/_edit_lock_ = true
+
+[node name="PlayerRespawn2" type="Marker2D" parent="PlayerRespawns"]
+position = Vector2(-382, -438)
+metadata/_edit_lock_ = true
+
+[node name="PlayerRespawn3" type="Marker2D" parent="PlayerRespawns"]
+position = Vector2(577, -438)
+metadata/_edit_lock_ = true
+
+[node name="PlayerRespawn4" type="Marker2D" parent="PlayerRespawns"]
+position = Vector2(1396, -438)
+metadata/_edit_lock_ = true
+
+[node name="PlayerRespawn5" type="Marker2D" parent="PlayerRespawns"]
+position = Vector2(2070, -438)
+metadata/_edit_lock_ = true
+
+[node name="Player" parent="." instance=ExtResource("3_t12tb")]
+scale = Vector2(3, 3)
+collision_mask = 2
+speed = 9.0
+
+[node name="Josouzais" type="Node2D" parent="."]
+
+[node name="Josouzai00" type="Marker2D" parent="Josouzais"]
+position = Vector2(-2154, -719)
+metadata/_edit_lock_ = true
+
+[node name="Josouzai01" type="Marker2D" parent="Josouzais"]
+position = Vector2(2122, -565)
+metadata/_edit_lock_ = true
+
+[node name="Josouzai10" type="Marker2D" parent="Josouzais"]
+position = Vector2(-2138, -262)
+metadata/_edit_lock_ = true
+
+[node name="Josouzai11" type="Marker2D" parent="Josouzais"]
+position = Vector2(2112, 305)
+metadata/_edit_lock_ = true
+
+[node name="JosouzaiSummonTimer" type="Timer" parent="Josouzais"]
+
+[node name="Cars" type="Node2D" parent="."]
+
+[node name="Car0" type="Marker2D" parent="Cars"]
+position = Vector2(-2420, 128)
+metadata/_edit_lock_ = true
+
+[node name="Car2" type="Marker2D" parent="Cars"]
+position = Vector2(-2420, -262)
+metadata/_edit_lock_ = true
+
+[node name="Car4" type="Marker2D" parent="Cars"]
+position = Vector2(-2420, -713)
+metadata/_edit_lock_ = true
+
+[node name="Car1" type="Marker2D" parent="Cars"]
+position = Vector2(2420, 325)
+metadata/_edit_lock_ = true
+
+[node name="Car3" type="Marker2D" parent="Cars"]
+position = Vector2(2420, -62)
+metadata/_edit_lock_ = true
+
+[node name="Car5" type="Marker2D" parent="Cars"]
+position = Vector2(2420, -556)
+metadata/_edit_lock_ = true
+
+[node name="Car" parent="Cars" instance=ExtResource("3_uv1bw")]
+position = Vector2(-47, -2272)
+scale = Vector2(3.5, 4)
+speed = 0.0
+
+[node name="Car8" parent="Cars" instance=ExtResource("3_uv1bw")]
+position = Vector2(374, -2274)
+scale = Vector2(2, 3)
+speed = 0.0
+
+[node name="Car23" parent="Cars" instance=ExtResource("3_uv1bw")]
+position = Vector2(-791, -1884)
+scale = Vector2(3.5, 4)
+speed = 0.0
+
+[node name="Car6" parent="Cars" instance=ExtResource("3_uv1bw")]
+position = Vector2(357, -1884)
+scale = Vector2(3.5, 4)
+speed = 0.0
+
+[node name="Car32" parent="Cars" instance=ExtResource("3_uv1bw")]
+position = Vector2(-1131, -1724)
+scale = Vector2(3.5, 4)
+move_dir = Vector2(-1, 0)
+speed = 0.0
+
+[node name="Car53" parent="Cars" instance=ExtResource("3_uv1bw")]
+position = Vector2(352, -1687)
+scale = Vector2(3.5, 4)
+move_dir = Vector2(-1, 0)
+speed = 0.0
+
+[node name="Car432" parent="Cars" instance=ExtResource("3_uv1bw")]
+position = Vector2(-394, -2062)
+scale = Vector2(3.5, 4)
+move_dir = Vector2(-1, 0)
+speed = 0.0
+
+[node name="Car7" parent="Cars" instance=ExtResource("3_uv1bw")]
+position = Vector2(373, -2074)
+scale = Vector2(3.5, 4)
+move_dir = Vector2(-1, 0)
+speed = 0.0
+
+[node name="Car9" parent="Cars" instance=ExtResource("3_uv1bw")]
+position = Vector2(373, -2725)
+scale = Vector2(3, 3.5)
+speed = 0.0
+
+[node name="Car10" parent="Cars" instance=ExtResource("3_uv1bw")]
+position = Vector2(374, -2568)
+scale = Vector2(3, 3.5)
+move_dir = Vector2(-1, 0)
+speed = 0.0
+
+[node name="CarSummonTimer" type="Timer" parent="Cars"]
+
+[node name="Gairojus" type="Node2D" parent="."]
+
+[node name="Gairoju00" type="Marker2D" parent="Gairojus"]
+position = Vector2(-1984, -448)
+metadata/_edit_lock_ = true
+
+[node name="Gairoju01" type="Marker2D" parent="Gairojus"]
+position = Vector2(-1385, -402)
+metadata/_edit_lock_ = true
+
+[node name="Gairoju10" type="Marker2D" parent="Gairojus"]
+position = Vector2(-1025, -449)
+metadata/_edit_lock_ = true
+
+[node name="Gairoju11" type="Marker2D" parent="Gairojus"]
+position = Vector2(-569, -404)
+metadata/_edit_lock_ = true
+
+[node name="Gairoju20" type="Marker2D" parent="Gairojus"]
+position = Vector2(-218, -459)
+metadata/_edit_lock_ = true
+
+[node name="Gairoju21" type="Marker2D" parent="Gairojus"]
+position = Vector2(406, -400)
+metadata/_edit_lock_ = true
+
+[node name="Gairoju30" type="Marker2D" parent="Gairojus"]
+position = Vector2(744, -460)
+metadata/_edit_lock_ = true
+
+[node name="Gairoju31" type="Marker2D" parent="Gairojus"]
+position = Vector2(1217, -399)
+metadata/_edit_lock_ = true
+
+[node name="Gairoju40" type="Marker2D" parent="Gairojus"]
+position = Vector2(1560, -458)
+metadata/_edit_lock_ = true
+
+[node name="Gairoju41" type="Marker2D" parent="Gairojus"]
+position = Vector2(1891, -400)
+metadata/_edit_lock_ = true
+
+[node name="Wall" type="StaticBody2D" parent="."]
+collision_layer = 2
+
+[node name="WallLeft" type="CollisionShape2D" parent="Wall"]
+position = Vector2(-2224, -236)
+shape = SubResource("RectangleShape2D_3g1np")
+metadata/_edit_lock_ = true
+
+[node name="WallRight" type="CollisionShape2D" parent="Wall"]
+position = Vector2(2224, -236)
+shape = SubResource("RectangleShape2D_hnoj6")
+metadata/_edit_lock_ = true
+
+[node name="WallTop" type="CollisionShape2D" parent="Wall"]
+position = Vector2(0, -784)
+shape = SubResource("RectangleShape2D_qdrfg")
+metadata/_edit_lock_ = true
+
+[node name="WallBottom" type="CollisionShape2D" parent="Wall"]
+position = Vector2(0, 400)
+shape = SubResource("RectangleShape2D_812u1")
+metadata/_edit_lock_ = true
+
+[node name="JosouzaiArea0" type="CollisionShape2D" parent="Wall"]
+position = Vector2(-1680, -432)
+shape = SubResource("RectangleShape2D_prwlg")
+metadata/_edit_lock_ = true
+
+[node name="JosouzaiArea1" type="CollisionShape2D" parent="Wall"]
+position = Vector2(-792, -432)
+shape = SubResource("RectangleShape2D_8iukg")
+metadata/_edit_lock_ = true
+
+[node name="JosouzaiArea2" type="CollisionShape2D" parent="Wall"]
+position = Vector2(96, -432)
+shape = SubResource("RectangleShape2D_n6g4y")
+metadata/_edit_lock_ = true
+
+[node name="JosouzaiArea3" type="CollisionShape2D" parent="Wall"]
+position = Vector2(983, -432)
+shape = SubResource("RectangleShape2D_ouesx")
+metadata/_edit_lock_ = true
+
+[node name="JosouzaiArea4" type="CollisionShape2D" parent="Wall"]
+position = Vector2(1728, -432)
+shape = SubResource("RectangleShape2D_175lu")
+metadata/_edit_lock_ = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+metadata/_edit_lock_ = true
+
+[node name="Hud" type="CanvasLayer" parent="."]
+
+[node name="Ready" parent="Hud" instance=ExtResource("6_7rd2i")]
+visible = false
+
+[node name="Game" type="Control" parent="Hud"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="Hud/Game"]
+layout_mode = 0
+offset_right = 1200.0
+offset_bottom = 100.0
+color = Color(0, 0, 0, 0.352941)
+metadata/_edit_lock_ = true
+
+[node name="BlackScreen" type="ColorRect" parent="Hud/Game"]
+visible = false
+layout_mode = 0
+offset_right = 1200.0
+offset_bottom = 740.0
+color = Color(0, 0, 0, 1)
+metadata/_edit_lock_ = true
+
+[node name="GameInfo" type="VBoxContainer" parent="Hud/Game"]
+layout_mode = 2
+offset_left = 10.0
+offset_right = 600.0
+offset_bottom = 100.0
+theme_override_constants/separation = 0
+alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="Score" type="HBoxContainer" parent="Hud/Game/GameInfo"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Hud/Game/GameInfo/Score"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+text = "スコア："
+label_settings = SubResource("LabelSettings_xmd1l")
+horizontal_alignment = 2
+
+[node name="ScoreLabel" type="Label" parent="Hud/Game/GameInfo/Score"]
+layout_mode = 2
+text = "000000"
+label_settings = SubResource("LabelSettings_161rm")
+vertical_alignment = 1
+
+[node name="Time" type="HBoxContainer" parent="Hud/Game/GameInfo"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Hud/Game/GameInfo/Time"]
+layout_mode = 2
+text = "制限時間："
+label_settings = SubResource("LabelSettings_akb6g")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="TimeLabel" type="Label" parent="Hud/Game/GameInfo/Time"]
+layout_mode = 2
+text = "00:00"
+label_settings = SubResource("LabelSettings_e2epr")
+vertical_alignment = 1
+
+[node name="JosouzaiInfo" type="VBoxContainer" parent="Hud/Game"]
+layout_mode = 2
+offset_left = 600.0
+offset_right = 1190.0
+offset_bottom = 100.0
+theme_override_constants/separation = 0
+alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="Label" type="Label" parent="Hud/Game/JosouzaiInfo"]
+layout_mode = 2
+text = "除草剤残量："
+label_settings = SubResource("LabelSettings_6q80p")
+
+[node name="JosouzaiPercentage" type="ProgressBar" parent="Hud/Game/JosouzaiInfo"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+theme_override_styles/fill = SubResource("StyleBoxFlat_7i5u1")
+step = 1.0
+value = 53.0
+rounded = true
+
+[node name="Debug" type="Control" parent="Hud"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="Hud/Debug"]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 620.0
+offset_right = 1100.0
+offset_bottom = 700.0
+color = Color(0, 0, 0, 0.313726)
+
+[node name="Label" type="Label" parent="Hud/Debug"]
+layout_mode = 0
+offset_left = 119.0
+offset_top = 634.0
+offset_right = 311.0
+offset_bottom = 672.0
+text = "camerapos: 
+playerpos:"
+
+[node name="Pause" type="Control" parent="Hud"]
+process_mode = 2
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="Hud/Pause"]
+layout_mode = 0
+offset_right = 1200.0
+offset_bottom = 740.0
+color = Color(0, 0, 0, 0.470588)
+metadata/_edit_lock_ = true
+
+[node name="PauseScreen" type="VBoxContainer" parent="Hud/Pause"]
+layout_mode = 0
+offset_right = 1200.0
+offset_bottom = 740.0
+metadata/_edit_lock_ = true
+
+[node name="HSeparator" type="HSeparator" parent="Hud/Pause/PauseScreen"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Hud/Pause/PauseScreen"]
+layout_mode = 2
+text = "一時中断"
+label_settings = SubResource("LabelSettings_f2u87")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HSeparator2" type="HSeparator" parent="Hud/Pause/PauseScreen"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+
+[node name="ResumeButton" type="Button" parent="Hud/Pause/PauseScreen"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("4_qrr58")
+theme_override_font_sizes/font_size = 50
+text = "続ける"
+
+[node name="HSeparator3" type="HSeparator" parent="Hud/Pause/PauseScreen"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+
+[node name="RetryButton" type="Button" parent="Hud/Pause/PauseScreen"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("4_qrr58")
+theme_override_font_sizes/font_size = 50
+text = "リトライ"
+
+[node name="HSeparator4" type="HSeparator" parent="Hud/Pause/PauseScreen"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+
+[node name="BackToTheTitleButton" type="Button" parent="Hud/Pause/PauseScreen"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("4_qrr58")
+theme_override_font_sizes/font_size = 50
+text = "タイトル画面に戻る"
+
+[node name="Result" type="Control" parent="Hud"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="Hud/Result"]
+layout_mode = 0
+offset_right = 1200.0
+offset_bottom = 740.0
+color = Color(0, 0, 0, 0.470588)
+metadata/_edit_lock_ = true
+
+[node name="ResultScreen" type="VBoxContainer" parent="Hud/Result"]
+layout_mode = 0
+offset_right = 1200.0
+offset_bottom = 740.0
+
+[node name="Label" type="Label" parent="Hud/Result/ResultScreen"]
+layout_mode = 2
+text = "結果"
+label_settings = SubResource("LabelSettings_1rkdu")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Score" type="VBoxContainer" parent="Hud/Result/ResultScreen"]
+layout_mode = 2
+
+[node name="ResultScore" type="Label" parent="Hud/Result/ResultScreen/Score"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "000000"
+label_settings = SubResource("LabelSettings_x01dq")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="YourCurrentScore" type="HBoxContainer" parent="Hud/Result/ResultScreen/Score"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="Hud/Result/ResultScreen/Score/YourCurrentScore"]
+layout_mode = 2
+text = "あなたの現在のスコア："
+label_settings = SubResource("LabelSettings_xptmu")
+vertical_alignment = 1
+
+[node name="YourCurrentScore" type="Label" parent="Hud/Result/ResultScreen/Score/YourCurrentScore"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "000000"
+label_settings = SubResource("LabelSettings_lei6m")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="Hud/Result/ResultScreen"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+
+[node name="ResultDetail" type="HBoxContainer" parent="Hud/Result/ResultScreen"]
+layout_mode = 2
+alignment = 1
+
+[node name="Detail" type="VBoxContainer" parent="Hud/Result/ResultScreen/ResultDetail"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Label" type="Label" parent="Hud/Result/ResultScreen/ResultDetail/Detail"]
+layout_mode = 2
+text = "詳細："
+label_settings = SubResource("LabelSettings_sayr8")
+
+[node name="DetailGrass" type="HBoxContainer" parent="Hud/Result/ResultScreen/ResultDetail/Detail"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Hud/Result/ResultScreen/ResultDetail/Detail/DetailGrass"]
+layout_mode = 2
+text = "草を枯らした回数："
+label_settings = SubResource("LabelSettings_l2vtk")
+vertical_alignment = 1
+
+[node name="ResultDetailGrass" type="Label" parent="Hud/Result/ResultScreen/ResultDetail/Detail/DetailGrass"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0"
+label_settings = SubResource("LabelSettings_vxtkq")
+vertical_alignment = 1
+
+[node name="DetailTree" type="HBoxContainer" parent="Hud/Result/ResultScreen/ResultDetail/Detail"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Hud/Result/ResultScreen/ResultDetail/Detail/DetailTree"]
+layout_mode = 2
+text = "木を枯らした回数："
+label_settings = SubResource("LabelSettings_u3cyw")
+
+[node name="ResultDetailTree" type="Label" parent="Hud/Result/ResultScreen/ResultDetail/Detail/DetailTree"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0"
+label_settings = SubResource("LabelSettings_watow")
+vertical_alignment = 1
+
+[node name="DetailCar" type="HBoxContainer" parent="Hud/Result/ResultScreen/ResultDetail/Detail"]
+layout_mode = 2
+
+[node name="ResultDetailCarLabel" type="Label" parent="Hud/Result/ResultScreen/ResultDetail/Detail/DetailCar"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "車に轢かれた回数："
+label_settings = SubResource("LabelSettings_187e0")
+
+[node name="ResultDetailCar" type="Label" parent="Hud/Result/ResultScreen/ResultDetail/Detail/DetailCar"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0"
+label_settings = SubResource("LabelSettings_ufy4h")
+vertical_alignment = 1
+
+[node name="VSeparator" type="VSeparator" parent="Hud/Result/ResultScreen/ResultDetail"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+
+[node name="CurrentDetail" type="VBoxContainer" parent="Hud/Result/ResultScreen/ResultDetail"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Label" type="Label" parent="Hud/Result/ResultScreen/ResultDetail/CurrentDetail"]
+layout_mode = 2
+text = "現在の成績："
+label_settings = SubResource("LabelSettings_o822a")
+
+[node name="CurrentDetailGrass" type="HBoxContainer" parent="Hud/Result/ResultScreen/ResultDetail/CurrentDetail"]
+layout_mode = 2
+
+[node name="CurrentDetailGrassLabel" type="Label" parent="Hud/Result/ResultScreen/ResultDetail/CurrentDetail/CurrentDetailGrass"]
+layout_mode = 2
+text = "草を枯らした回数："
+label_settings = SubResource("LabelSettings_y8bnl")
+vertical_alignment = 1
+
+[node name="CurrentDetailGrass" type="Label" parent="Hud/Result/ResultScreen/ResultDetail/CurrentDetail/CurrentDetailGrass"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0"
+label_settings = SubResource("LabelSettings_nnlry")
+vertical_alignment = 1
+
+[node name="CurrentDetailTree" type="HBoxContainer" parent="Hud/Result/ResultScreen/ResultDetail/CurrentDetail"]
+layout_mode = 2
+
+[node name="CurrentDetailTreeLabel" type="Label" parent="Hud/Result/ResultScreen/ResultDetail/CurrentDetail/CurrentDetailTree"]
+layout_mode = 2
+text = "木を枯らした回数："
+label_settings = SubResource("LabelSettings_6atpk")
+
+[node name="CurrentDetailTree" type="Label" parent="Hud/Result/ResultScreen/ResultDetail/CurrentDetail/CurrentDetailTree"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0"
+label_settings = SubResource("LabelSettings_0lrcc")
+vertical_alignment = 1
+
+[node name="CurrentDetailCar" type="HBoxContainer" parent="Hud/Result/ResultScreen/ResultDetail/CurrentDetail"]
+layout_mode = 2
+
+[node name="CurrentDetailCarLabel" type="Label" parent="Hud/Result/ResultScreen/ResultDetail/CurrentDetail/CurrentDetailCar"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "車に轢かれた回数："
+label_settings = SubResource("LabelSettings_y43my")
+
+[node name="CurrentDetailCar" type="Label" parent="Hud/Result/ResultScreen/ResultDetail/CurrentDetail/CurrentDetailCar"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0"
+label_settings = SubResource("LabelSettings_10sop")
+vertical_alignment = 1
+
+[node name="VSeparator2" type="HSeparator" parent="Hud/Result/ResultScreen"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+
+[node name="Buttons" type="HBoxContainer" parent="Hud/Result/ResultScreen"]
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="RetryButton" type="Button" parent="Hud/Result/ResultScreen/Buttons"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 70)
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "もう一度枯らす"
+
+[node name="SaveScoreButton" type="Button" parent="Hud/Result/ResultScreen/Buttons"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "スコアを保存する"
+
+[node name="BackToTheTitleButton" type="Button" parent="Hud/Result/ResultScreen/Buttons"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "タイトル画面に戻る"
+
+[node name="AmbientSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_psv82")
+
+[node name="HardAmbientSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_5lyr8")
+
+[node name="OpenMenuSound" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = ExtResource("7_q1me2")
+
+[node name="FinishSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_aosyi")
+
+[node name="GameTimer" type="Timer" parent="."]
+
+[connection signal="CAR_HIT" from="Player" to="." method="_on_player_car_hit"]
+[connection signal="timeout" from="Josouzais/JosouzaiSummonTimer" to="." method="_on_josouzai_summon_timer_timeout"]
+[connection signal="timeout" from="Cars/CarSummonTimer" to="." method="_on_car_summon_timer_timeout"]
+[connection signal="pressed" from="Hud/Pause/PauseScreen/ResumeButton" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="Hud/Pause/PauseScreen/RetryButton" to="." method="_on_retry_button_pressed"]
+[connection signal="pressed" from="Hud/Pause/PauseScreen/BackToTheTitleButton" to="." method="_on_back_to_the_title_button_pressed"]
+[connection signal="pressed" from="Hud/Result/ResultScreen/Buttons/RetryButton" to="." method="_on_retry_button_pressed"]
+[connection signal="pressed" from="Hud/Result/ResultScreen/Buttons/SaveScoreButton" to="." method="_on_save_score_button_pressed"]
+[connection signal="pressed" from="Hud/Result/ResultScreen/Buttons/BackToTheTitleButton" to="." method="_on_back_to_the_title_button_pressed"]
+[connection signal="timeout" from="GameTimer" to="." method="_on_game_timer_timeout"]

@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://c8c4mq4441x4j"]
+
+[ext_resource type="Texture2D" uid="uid://olypd648dd47" path="res://img/josouzai.png" id="1_usihh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qhvwa"]
+size = Vector2(87, 87)
+
+[node name="Attack" type="Node2D"]
+position = Vector2(-4, 4)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_usihh")
+
+[node name="AttackHitBox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackHitBox"]
+position = Vector2(1.5, 0.5)
+shape = SubResource("RectangleShape2D_qhvwa")

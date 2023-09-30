@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://bw3qmith78iol"]
+
+[ext_resource type="Script" path="res://scenes/josouzai/josouzai.gd" id="1_rbxj6"]
+[ext_resource type="Texture2D" uid="uid://olypd648dd47" path="res://img/josouzai.png" id="2_vjn7h"]
+
+[sub_resource type="Gradient" id="Gradient_jq8ji"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_2s05d"]
+gradient = SubResource("Gradient_jq8ji")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ubjt0"]
+size = Vector2(42, 42)
+
+[node name="Josouzai" type="Node2D"]
+script = ExtResource("1_rbxj6")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+color = Color(0.988235, 0.619608, 0.360784, 1)
+energy = 0.2
+texture = SubResource("GradientTexture2D_2s05d")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_vjn7h")
+
+[node name="JosouzaiHitBox" type="Area2D" parent="."]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="JosouzaiHitBox"]
+shape = SubResource("RectangleShape2D_ubjt0")
+
+[connection signal="area_entered" from="JosouzaiHitBox" to="." method="_on_josouzai_hit_box_area_entered"]
+[connection signal="body_entered" from="JosouzaiHitBox" to="." method="_on_josouzai_hit_box_body_entered"]

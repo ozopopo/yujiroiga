@@ -1,0 +1,277 @@
+[gd_scene load_steps=17 format=3 uid="uid://bhdahfafdee0y"]
+
+[ext_resource type="Script" path="res://scenes/Title/title.gd" id="1_tvosk"]
+[ext_resource type="Texture2D" uid="uid://cps4irbjkxek0" path="res://img/background/back.jpg" id="2_7qjlv"]
+[ext_resource type="FontFile" uid="uid://cw4i3i5gly5i" path="res://font/mplus-1c-regular.ttf" id="3_5wiru"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_cg2rt"]
+line_spacing = 0.0
+font = ExtResource("3_5wiru")
+font_size = 90
+font_color = Color(0.415686, 0.764706, 1, 1)
+shadow_size = 13
+shadow_color = Color(0, 0.368627, 0.709804, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_k33s1"]
+font = ExtResource("3_5wiru")
+font_size = 21
+
+[sub_resource type="LabelSettings" id="LabelSettings_41xhn"]
+font = ExtResource("3_5wiru")
+font_size = 20
+
+[sub_resource type="LabelSettings" id="LabelSettings_1dnqt"]
+font = ExtResource("3_5wiru")
+font_size = 20
+
+[sub_resource type="LabelSettings" id="LabelSettings_5664f"]
+font = ExtResource("3_5wiru")
+
+[sub_resource type="LabelSettings" id="LabelSettings_m3t8r"]
+font = ExtResource("3_5wiru")
+
+[sub_resource type="LabelSettings" id="LabelSettings_5yin2"]
+font = ExtResource("3_5wiru")
+
+[sub_resource type="LabelSettings" id="LabelSettings_5aah2"]
+font = ExtResource("3_5wiru")
+
+[sub_resource type="LabelSettings" id="LabelSettings_ajwti"]
+font = ExtResource("3_5wiru")
+
+[sub_resource type="LabelSettings" id="LabelSettings_4yfqt"]
+font = ExtResource("3_5wiru")
+
+[sub_resource type="LabelSettings" id="LabelSettings_gtjjv"]
+font = ExtResource("3_5wiru")
+font_size = 21
+
+[sub_resource type="LabelSettings" id="LabelSettings_7pi8t"]
+font = ExtResource("3_5wiru")
+
+[sub_resource type="LabelSettings" id="LabelSettings_s1ne0"]
+font = ExtResource("3_5wiru")
+
+[node name="Title" type="Node"]
+script = ExtResource("1_tvosk")
+
+[node name="Ui" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureRect" type="TextureRect" parent="Ui"]
+texture_filter = 2
+layout_mode = 0
+offset_right = 1200.0
+offset_bottom = 740.0
+texture = ExtResource("2_7qjlv")
+
+[node name="ColorRect" type="ColorRect" parent="Ui"]
+layout_mode = 0
+offset_left = 50.0
+offset_top = 50.0
+offset_right = 1150.0
+offset_bottom = 690.0
+color = Color(0, 0, 0, 0.470588)
+
+[node name="TitleUi" type="VBoxContainer" parent="Ui"]
+layout_mode = 0
+offset_right = 1200.0
+offset_bottom = 740.0
+metadata/_edit_lock_ = true
+
+[node name="HSeparator" type="HSeparator" parent="Ui/TitleUi"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="TitleLabel" type="Label" parent="Ui/TitleUi"]
+layout_mode = 2
+text = "ユジロイガ"
+label_settings = SubResource("LabelSettings_cg2rt")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HSeparator2" type="HSeparator" parent="Ui/TitleUi"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+
+[node name="StartButton" type="Button" parent="Ui/TitleUi"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(400, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+focus_neighbor_bottom = NodePath("../RuleButton")
+theme_override_font_sizes/font_size = 60
+text = "START"
+
+[node name="HSeparator3" type="HSeparator" parent="Ui/TitleUi"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(0, 70)
+layout_mode = 2
+
+[node name="RuleButton" type="Button" parent="Ui/TitleUi"]
+custom_minimum_size = Vector2(400, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+focus_neighbor_top = NodePath("../StartButton")
+focus_neighbor_bottom = NodePath("../../CurrentSettingUi/ScoreListButton")
+theme_override_font_sizes/font_size = 60
+text = "ルール確認"
+
+[node name="HSeparator4" type="HSeparator" parent="Ui/TitleUi"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+
+[node name="CurrentScoreUi" type="VBoxContainer" parent="Ui"]
+layout_mode = 2
+offset_left = 75.0
+offset_top = 200.0
+offset_right = 375.0
+offset_bottom = 650.0
+
+[node name="Label" type="Label" parent="Ui/CurrentScoreUi"]
+layout_mode = 2
+text = "ようこそ、ああああさん！
+現在の保存されているデータ："
+label_settings = SubResource("LabelSettings_k33s1")
+
+[node name="Score" type="HBoxContainer" parent="Ui/CurrentScoreUi"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Ui/CurrentScoreUi/Score"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+text = "スコア："
+label_settings = SubResource("LabelSettings_41xhn")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CurrentScore" type="Label" parent="Ui/CurrentScoreUi/Score"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "000000"
+label_settings = SubResource("LabelSettings_1dnqt")
+vertical_alignment = 1
+
+[node name="Grass" type="HBoxContainer" parent="Ui/CurrentScoreUi"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Ui/CurrentScoreUi/Grass"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+text = "草を枯らした回数："
+label_settings = SubResource("LabelSettings_5664f")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="CurrentGrass" type="Label" parent="Ui/CurrentScoreUi/Grass"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0"
+label_settings = SubResource("LabelSettings_m3t8r")
+vertical_alignment = 1
+
+[node name="Tree" type="HBoxContainer" parent="Ui/CurrentScoreUi"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Ui/CurrentScoreUi/Tree"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+text = "木を枯らした回数："
+label_settings = SubResource("LabelSettings_5yin2")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="CurrentTree" type="Label" parent="Ui/CurrentScoreUi/Tree"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0"
+label_settings = SubResource("LabelSettings_5aah2")
+vertical_alignment = 1
+
+[node name="Car" type="HBoxContainer" parent="Ui/CurrentScoreUi"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Ui/CurrentScoreUi/Car"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+text = "車に轢かれた回数："
+label_settings = SubResource("LabelSettings_ajwti")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="CurrentCar" type="Label" parent="Ui/CurrentScoreUi/Car"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0"
+label_settings = SubResource("LabelSettings_4yfqt")
+vertical_alignment = 1
+
+[node name="CurrentSettingUi" type="VBoxContainer" parent="Ui"]
+layout_mode = 0
+offset_left = 830.0
+offset_top = 200.0
+offset_right = 1107.0
+offset_bottom = 648.0
+
+[node name="Label" type="Label" parent="Ui/CurrentSettingUi"]
+layout_mode = 2
+text = "現在の設定："
+label_settings = SubResource("LabelSettings_gtjjv")
+
+[node name="Gamemode" type="HBoxContainer" parent="Ui/CurrentSettingUi"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Ui/CurrentSettingUi/Gamemode"]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+text = "ゲームモード："
+label_settings = SubResource("LabelSettings_7pi8t")
+horizontal_alignment = 2
+
+[node name="GamemodeLabel" type="Label" parent="Ui/CurrentSettingUi/Gamemode"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "スコア"
+label_settings = SubResource("LabelSettings_s1ne0")
+
+[node name="Difficulty" type="HBoxContainer" parent="Ui/CurrentSettingUi"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Ui/CurrentSettingUi/Difficulty"]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+text = "難易度："
+label_settings = SubResource("LabelSettings_7pi8t")
+horizontal_alignment = 1
+
+[node name="DifficultyLabel" type="Label" parent="Ui/CurrentSettingUi/Difficulty"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "ノーマル"
+label_settings = SubResource("LabelSettings_s1ne0")
+
+[node name="HSeparator" type="HSeparator" parent="Ui/CurrentSettingUi"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(0, 96)
+layout_mode = 2
+
+[node name="SettingButton" type="Button" parent="Ui/CurrentSettingUi"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "設定を変更する"
+
+[node name="ScoreListButton" type="Button" parent="Ui/CurrentSettingUi"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "他の人の記録を見る"
+
+[connection signal="pressed" from="Ui/TitleUi/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="Ui/TitleUi/RuleButton" to="." method="_on_rule_button_pressed"]
+[connection signal="pressed" from="Ui/CurrentSettingUi/SettingButton" to="." method="_on_setting_button_pressed"]
+[connection signal="pressed" from="Ui/CurrentSettingUi/ScoreListButton" to="." method="_on_score_list_button_pressed"]

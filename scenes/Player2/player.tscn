@@ -1,0 +1,133 @@
+[gd_scene load_steps=12 format=3 uid="uid://csj83mkgp051p"]
+
+[ext_resource type="Script" path="res://scenes/Player2/player.gd" id="1_cq0e2"]
+[ext_resource type="Texture2D" uid="uid://dpflgnbcatr7o" path="res://img/player.png" id="2_nholn"]
+[ext_resource type="PackedScene" uid="uid://c8c4mq4441x4j" path="res://scenes/attack.tscn" id="3_jaa3f"]
+[ext_resource type="AudioStream" uid="uid://cbokkmvutufgi" path="res://sounds/josouzaiget.mp3" id="4_1vf0n"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lw0lq"]
+size = Vector2(2.8, 2.4)
+
+[sub_resource type="Animation" id="Animation_xoos0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 0,
+"values": []
+}
+
+[sub_resource type="Animation" id="Animation_mj36o"]
+resource_name = "walk01"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [Rect2(29, 232, 13, 23), Rect2(5, 233, 13, 23), Rect2(53, 233, 13, 23)]
+}
+
+[sub_resource type="Animation" id="Animation_6f4rj"]
+resource_name = "walk10"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [Rect2(28, 136, 16, 23), Rect2(53, 137, 14, 23), Rect2(5, 137, 14, 23)]
+}
+
+[sub_resource type="Animation" id="Animation_dv5bm"]
+resource_name = "walk12"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [Rect2(28, 200, 16, 23), Rect2(53, 201, 14, 23), Rect2(5, 201, 14, 23)]
+}
+
+[sub_resource type="Animation" id="Animation_4i8hv"]
+resource_name = "walk21"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [Rect2(30, 168, 13, 23), Rect2(54, 169, 13, 23), Rect2(6, 169, 13, 23)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_phv8m"]
+_data = {
+"RESET": SubResource("Animation_xoos0"),
+"walk01": SubResource("Animation_mj36o"),
+"walk10": SubResource("Animation_6f4rj"),
+"walk12": SubResource("Animation_dv5bm"),
+"walk21": SubResource("Animation_4i8hv")
+}
+
+[node name="Player" type="Node2D"]
+script = ExtResource("1_cq0e2")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("2_nholn")
+region_enabled = true
+region_rect = Rect2(53, 233, 13, 23)
+
+[node name="PlayerHitBox" type="Area2D" parent="."]
+scale = Vector2(5, 5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerHitBox"]
+position = Vector2(-1.19209e-07, 1.2)
+shape = SubResource("RectangleShape2D_lw0lq")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_phv8m")
+}
+
+[node name="Attack" parent="." instance=ExtResource("3_jaa3f")]
+scale = Vector2(0.8, 0.3)
+
+[node name="Label" type="Label" parent="."]
+offset_left = 11.0
+offset_top = -11.0
+offset_right = 51.0
+offset_bottom = 12.0
+
+[node name="JosouzaiGet" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_1vf0n")
+
+[connection signal="area_entered" from="PlayerHitBox" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="PlayerHitBox" to="." method="_on_area_2d_area_exited"]

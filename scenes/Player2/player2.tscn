@@ -1,0 +1,150 @@
+[gd_scene load_steps=13 format=3 uid="uid://dc01b2q865a5d"]
+
+[ext_resource type="Texture2D" uid="uid://dpflgnbcatr7o" path="res://img/player.png" id="1_1b1pn"]
+[ext_resource type="Script" path="res://scenes/Player2/player2.gd" id="1_mr7wb"]
+[ext_resource type="Texture2D" uid="uid://olypd648dd47" path="res://img/josouzai.png" id="3_2fflo"]
+[ext_resource type="AudioStream" uid="uid://cbokkmvutufgi" path="res://sounds/josouzaiget.mp3" id="4_shb6p"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hsgy7"]
+size = Vector2(14, 10.75)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eox7x"]
+size = Vector2(434.864, 437.599)
+
+[sub_resource type="Animation" id="Animation_iuy4w"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(28, 200, 16, 23)]
+}
+
+[sub_resource type="Animation" id="Animation_n8u08"]
+resource_name = "walk01"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [Rect2(29, 232, 13, 23), Rect2(5, 233, 13, 23), Rect2(53, 233, 13, 23)]
+}
+
+[sub_resource type="Animation" id="Animation_mo6nh"]
+resource_name = "walk10"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [Rect2(28, 136, 16, 23), Rect2(5, 137, 14, 23), Rect2(53, 137, 14, 23)]
+}
+
+[sub_resource type="Animation" id="Animation_054yn"]
+resource_name = "walk11"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [Rect2(28, 200, 16, 23), Rect2(53, 201, 14, 23), Rect2(5, 201, 14, 23)]
+}
+
+[sub_resource type="Animation" id="Animation_crah4"]
+resource_name = "walk21"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [Rect2(30, 168, 13, 23), Rect2(54, 169, 13, 23), Rect2(6, 169, 13, 23)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ovsv7"]
+_data = {
+"RESET": SubResource("Animation_iuy4w"),
+"walk01": SubResource("Animation_n8u08"),
+"walk10": SubResource("Animation_mo6nh"),
+"walk12": SubResource("Animation_054yn"),
+"walk21": SubResource("Animation_crah4")
+}
+
+[node name="Player" type="CharacterBody2D"]
+texture_filter = 1
+motion_mode = 1
+script = ExtResource("1_mr7wb")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_1b1pn")
+region_enabled = true
+region_rect = Rect2(28, 200, 16, 23)
+
+[node name="PlayerHitBox2" type="Area2D" parent="."]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerHitBox2"]
+position = Vector2(0, 6)
+shape = SubResource("RectangleShape2D_hsgy7")
+
+[node name="Attack" type="Sprite2D" parent="."]
+visible = false
+scale = Vector2(0.175, 0.046)
+texture = ExtResource("3_2fflo")
+
+[node name="AttackHitBox" type="Area2D" parent="Attack"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Attack/AttackHitBox"]
+position = Vector2(4.10248, 1.04332e-05)
+shape = SubResource("RectangleShape2D_eox7x")
+disabled = true
+
+[node name="PlayerCharaHitBox" type="CollisionShape2D" parent="."]
+position = Vector2(0, 6)
+shape = SubResource("RectangleShape2D_hsgy7")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ovsv7")
+}
+
+[node name="JosouzaiGetSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_shb6p")
+
+[node name="Label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "00"
+horizontal_alignment = 1
+
+[connection signal="area_entered" from="PlayerHitBox2" to="." method="_on_player_hit_box_area_entered"]
