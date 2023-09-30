@@ -46,7 +46,6 @@ func load_cfg_file() -> ConfigFile:
 func regenerate_data_file() -> void:
 	var cfg:ConfigFile = ConfigFile.new()
 	
-	cfg.set_value("FairyMD", "pass", "43488b6a288dd1af212bd743c9d78e5b76f0d6c543d442c1d86ec874eb001578")
 	cfg.set_value("FairyMD", "score0", 0)
 	cfg.set_value("FairyMD", "grass0", 0)
 	cfg.set_value("FairyMD", "tree0", 0)
@@ -85,7 +84,6 @@ func recovery_data_file() -> void:
 			match s_key:
 				"pass":
 					if section == "FairyMD":
-						cfg_n.set_value(section, "pass", "43488b6a288dd1af212bd743c9d78e5b76f0d6c543d442c1d86ec874eb001578")
 						continue
 						pass
 					pass
@@ -272,12 +270,6 @@ func get_current_user_data() -> Dictionary:
 	var cfg:ConfigFile = load_cfg_file()
 
 	var ret:Dictionary = {}
-
-	#[TestUser0000]
-	#score0=100000
-	#grass0=0
-	#tree0=1
-	#car0=2
 
 	if gamemode == 0:
 		ret.score = cfg.get_value(current_user_name,"score%d" % [difficlty])

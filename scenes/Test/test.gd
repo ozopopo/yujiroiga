@@ -11,7 +11,6 @@ func _physics_process(_delta) -> void:
 
 func _on_get_pressed() -> void:
 #	print( Settings.get_userdata("ﾌｪｱﾘｨ誠です男（製作者）") )
-	print("FairyMD_7101".uri_encode().sha256_text())
 	return
 
 func set_score_list() -> void:
