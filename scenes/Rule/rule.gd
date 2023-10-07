@@ -5,6 +5,7 @@ const TOTAL_PAGE_COUNT:int = 3
 var default_show_gairoju_health:bool = false
 var rule_index:int = 0
 
+var forward_button_pressed_count:int = 0
 
 func _init() -> void:
 	default_show_gairoju_health = Settings.show_gairoju_health
@@ -39,8 +40,18 @@ func set_page() -> void:
 			rule.process_mode = Node.PROCESS_MODE_DISABLED
 			pass
 		pass
-
-	%ForwardButton.disabled = (rule_index == TOTAL_PAGE_COUNT-1)
+	return
+	
+func glitch_text() -> void:
+	var now_text:String = $Ui/Rule2/InsanityLabel.text
+	var splitted_string_array:PackedStringArray = now_text.split("")
+	var splitted_array:Array = Array(splitted_string_array)
+	var res:String = ""
+	splitted_array.shuffle()
+	for i in range(splitted_array.size()):
+		res += splitted_array[i]
+		pass
+	$Ui/Rule2/InsanityLabel.text = res
 	return
 
 func _on_back_button_pressed() -> void:
@@ -52,11 +63,25 @@ func _on_back_button_pressed() -> void:
 		rule_index -= 1
 		set_page()
 		pass
+		
+	$Ui/Rule2/InsanityLabel.hide()
+	$Ui/Rule2/SanityLabel.show()
+	forward_button_pressed_count = 0
 	return
 
 func _on_forward_button_pressed() -> void:
 	if rule_index < TOTAL_PAGE_COUNT-1:
 		rule_index += 1
+		set_page()
 		pass
-	set_page()
+	else:
+		forward_button_pressed_count += 1
+		if forward_button_pressed_count % 20 == 0:
+			$Ui/Rule2/SanityLabel.hide()
+			$Ui/Rule2/InsanityLabel.show()
+			glitch_text()
+			pass
+		if forward_button_pressed_count > 100:
+			get_node("../")._change_scene("kyoiku")
+			pass
 	return

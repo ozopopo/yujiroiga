@@ -85,6 +85,7 @@ offset_bottom = 740.0
 color = Color(0, 0, 0, 0.470588)
 
 [node name="Rule0" type="VBoxContainer" parent="Ui"]
+visible = false
 layout_mode = 0
 offset_right = 1200.0
 offset_bottom = 670.0
@@ -244,12 +245,37 @@ F11キーでフルスクリーン"
 label_settings = SubResource("LabelSettings_rpj51")
 
 [node name="Rule2" type="VBoxContainer" parent="Ui"]
-visible = false
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Label" type="Label" parent="Ui/Rule2"]
+[node name="SanityLabel" type="Label" parent="Ui/Rule2"]
+layout_mode = 2
+text = "ゲームモードと難易度について
+
+Ver. 1.3から、新しく「ゲームモード」と、「難易度」の概念が追加されました。
+以下がそれぞれのゲームモード、難易度の特徴です。
+
+ゲームモード
+「スコア」
+これまでのゲームと同じ、１分内にどれぐらい街路樹を枯らせるかのスコアで競うモードです。
+詳細に保存される記録として、「草を枯らした回数」、「木を枯らした回数」、「車に轢かれた回数」の３つがあります。
+
+「タイム」
+エリア内にあるすべての街路樹をどれだけ早く枯らせるかのタイムで競うモードです。
+詳細に保存される記録は、「車に轢かれた回数」だけです。
+
+難易度
+「ノーマル」
+これまでのゲームと同じ、昼間で視界が良く、すべてが見渡せます。
+
+「ハード」
+夜中でとても暗く、視界がとても悪いので、近づかないと街路樹が視認できません。
+また、何故か除草剤残量の減少スピードが増加しています。"
+label_settings = SubResource("LabelSettings_rpj51")
+
+[node name="InsanityLabel" type="Label" parent="Ui/Rule2"]
+visible = false
 layout_mode = 2
 text = "ゲームモードと難易度について
 
