@@ -5,6 +5,7 @@ var word_execution:String = "死刑死刑"
 var word_count:int = 0
 
 func _ready() -> void:
+	DisplayServer.window_set_title("JUU2JTk1JTk5JUU4JTgyJUIyJUU2JTk1JTk5JUU4JTgyJUIyJUU2JTk1JTk5JUU4JTgyJUIyJUU2JUFEJUJCJUU1JTg4JTkxJUU2JUFEJUJCJUU1JTg4JTkxJUU2JUFEJUJCJUU1JTg4JTkx")
 	$AudioStreamPlayer.connect("finished", $AudioStreamPlayer.play)
 	$AudioStreamPlayer.play()
 	return
